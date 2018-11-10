@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-left text-wrap (click)="logout()" >
+        <ion-icon name="ios-log-out"></ion-icon>  <span *ngIf="displayname">{{displayname}}</span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<button ion-item *ngFor="let menu of main_page_list" (click)="navigate_menu(menu.component)">
+  {{menu.title}}
+</button>
+</ion-content>
