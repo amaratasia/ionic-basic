@@ -13,13 +13,16 @@ import { AuthProvider } from '../providers/auth/auth';
 import { AddIngredient } from '../pages/add_ingredient/add_ingredient';
 import { ListIngredient } from '../pages/list_ingredient/list_ingredient';
 import { Ingredient } from '../pages/list_ingredient/list_ingredient';
+import { AddChildIngredient } from '../pages/add_ingredient/add_ingredient';
+import { IngredientServiceProvider } from '../providers/ingredient-service/ingredient-service';
 
 @NgModule({
   declarations: [
     MyApp,
     ListIngredient,
     Ingredient,
-    AddIngredient
+    AddIngredient,
+    AddChildIngredient
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { Ingredient } from '../pages/list_ingredient/list_ingredient';
     MyApp,
     ListIngredient,
     Ingredient,
-    AddIngredient
+    AddIngredient,
+    AddChildIngredient
     // SignUpPage
   ],
   providers: [
@@ -41,7 +45,8 @@ import { Ingredient } from '../pages/list_ingredient/list_ingredient';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GlobalProvider,
     PostProvider,
-    AuthProvider
+    AuthProvider,
+    IngredientServiceProvider
   ]
 })
 export class AppModule {}

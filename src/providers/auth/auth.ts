@@ -42,8 +42,6 @@ export class AuthProvider {
       return Observable.create(observer => {
 
         this.post.restAuth(credentials.username,credentials.password).subscribe( response => {
-            console.log("Mar");
-            console.log(response);
           this.returnAccess = response;
 
           if(this.returnAccess.result != "Success!"){

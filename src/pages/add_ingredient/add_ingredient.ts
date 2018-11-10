@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, IonicPage, ModalController, NavParams, ViewController } from 'ionic-angular';
-
+import { NavController, IonicPage, ModalController, NavParams, ViewController, AlertController } from 'ionic-angular';
+import { IngredientServiceProvider } from '../../providers/ingredient-service/ingredient-service';
 import { AuthProvider } from '../../providers/auth/auth';
 import { HomePage } from '../../pages/home/home';
+import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+
 
 @IonicPage()
 
@@ -14,64 +16,87 @@ export class AddIngredient {
 
   ingredient_categories: Array<{title: string, id: number}>;
 
-  constructor(public nav: NavController, public modalCtrl: ModalController, private auth: AuthProvider) {
+  constructor(public nav: NavController, public modalCtrl: ModalController,
+              public ingredientService: IngredientServiceProvider,
+              private auth: AuthProvider) {
     
   }
-    ionViewDidLoad() {
-    console.log('ionViewDidLoad');
-    
+
+  openIngredientDetail(id) {
+    let profileModal = this.modalCtrl.create(AddChildIngredient, { ingredient_id: id });
+    profileModal.present();
   }
 
-presentProfileModal() {
-   let profileModal = this.modalCtrl.create(Ingredient, { userId: 8675309 });
-   profileModal.present();
- }
-
-
-  ngOnInit(){
-
-    console.log("ngOnInit");
-    this.ingredient_categories = [
-      {title: "string12", id: 122},
-      {title: "stringss", id: 122},
-      {title: "string", id: 122}
-     ]
+  public ngOnInit(){
+     this.get_parent_category_ingredient();
   }
-  goToHome(){
+
+  private get_parent_category_ingredient(){
+    this.ingredientService.ingredient_parent_category()
+      .then(data => {
+          this.ingredient_categories = data['data'];
+        })
+      .catch( error => {
+              // this.alert(error.message);
+              console.log(error)
+            })
+  }
+  public goToHome(){
     this.nav.setRoot(HomePage);
   }
+
 	public logout() {
 		this.auth.logout().subscribe(succ => {
 		  this.nav.setRoot('LoginPage');
 		});
 	}
-
 }
 
 @Component({
   selector: 'page-add-ingredient-modal',
   templateUrl: 'ingredient.html'
 })
-export class Ingredient {
-  character;
-  cuisine;
-  title;
-
+export class AddChildIngredient {
+  parent_id: number;
+  ingredient_list: any;
+  todo: any;
   constructor(
     public params: NavParams,
     public nav: NavController,
+    public ingredientService: IngredientServiceProvider,
     public viewCtrl: ViewController,
+    private formBuilder: FormBuilder,
+    private alertCtrl: AlertController
   ) {
-    this.cuisine = {'digest': [{label: "amar", unit: 120, total: 120}], image: true}
-    this.title = this.params.get('userId');
-    // this.peopleServiceProvider.loadin(this.title)
-    //     .then(data => {
-    //       loading.dismiss();
-    //       console.log(data['hits'])
-    //       var resp = data['hits'].sort(function(a,b) { return parseFloat(a.recipe.yield) - parseFloat(b.recipe.yield) } )
-    //       this.cuisine = resp[resp.length - 1].recipe;
-    //     });
+    this.parent_id = this.params.get('ingredient_id');
+    this.get_parent_category_ingredient();
+    this.todo = {title: "", quantity: 0}
   }
+
+  registerIngredient() {
+    this.presentAlert();
+    this.dismiss();
+  }
+
+  presentAlert() {
+  let alert = this.alertCtrl.create({
+    title: 'Add Ingredient',
+    subTitle: this.todo.title + " Added",
+    buttons: ['Dismiss']
+  });
+  alert.present();
+}
+
+  public get_parent_category_ingredient(){
+    this.ingredientService.get_child_ingredient(this.parent_id)
+      .then(data => {
+          this.ingredient_list = data['data'];
+        })
+      .catch( error => {
+              console.log(error.message)
+            })
+  }
+
   goToHome(){
     this.nav.setRoot(HomePage);
   }

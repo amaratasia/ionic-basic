@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Details
+      Add Ingredient
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
@@ -11,21 +11,18 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
-<!--  -->
 <ion-content >
-  <ion-list>
-    <ion-item *ngFor="let item of cuisine.digest">
-          {{item.title}}
-      <ion-label color="primary">{{item.label}}</ion-label>
-      <ion-input placeholder="Text Input" (ionChange)="updateIngredient()" value="{{item.label}}"></ion-input>
+  <form (submit)="registerIngredient()" padding class="bg-register-image" >
+    <ion-item>
+      <ion-label>Title</ion-label>
+      <ion-select [(ngModel)]="todo.title" name='title'>
+        <ion-option name="title_option" *ngFor="let ingredient of ingredient_list" value="{{ingredient.name}}">{{ingredient.name}}</ion-option>
+      </ion-select>
     </ion-item>
-  </ion-list>
-  <ion-row center>  
-   <ion-col text-center>   
-    <button ion-button icon-only (click)="goToHome()">
-    <ion-icon name="home"></ion-icon>
-    </button>
-   </ion-col> 
-  </ion-row>
+  <ion-item>
+    <ion-label>Quantity</ion-label>
+    <ion-input type="number" text-right [(ngModel)]="todo.quantity" name="quantity"></ion-input>
+  </ion-item>
+  <button ion-button type="submit" [disabled]="!(todo.title&&todo.quantity)" block>Add Ingredient</button>
+  </form>
 </ion-content>

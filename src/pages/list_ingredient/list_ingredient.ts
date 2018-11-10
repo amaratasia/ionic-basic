@@ -17,26 +17,11 @@ export class ListIngredient {
   constructor(public nav: NavController, public modalCtrl: ModalController, private auth: AuthProvider) {
     
   }
-    ionViewDidLoad() {
-    console.log('ionViewDidLoad');
-    
-  }
+  presentProfileModal() {
+    let profileModal = this.modalCtrl.create(Ingredient, { userId: 8675309 });
+    profileModal.present();
+   }
 
-presentProfileModal() {
-   let profileModal = this.modalCtrl.create(Ingredient, { userId: 8675309 });
-   profileModal.present();
- }
-
-
-  ngOnInit(){
-
-    console.log("ngOnInit");
-    this.ingredient_categories = [
-      {title: "string12", id: 122},
-      {title: "stringss", id: 122},
-      {title: "string", id: 122}
-     ]
-  }
   goToHome(){
     this.nav.setRoot(HomePage);
   }
@@ -64,13 +49,6 @@ export class Ingredient {
   ) {
     this.cuisine = {'digest': [{label: "amar", unit: 120, total: 120}], image: true}
     this.title = this.params.get('userId');
-    // this.peopleServiceProvider.loadin(this.title)
-    //     .then(data => {
-    //       loading.dismiss();
-    //       console.log(data['hits'])
-    //       var resp = data['hits'].sort(function(a,b) { return parseFloat(a.recipe.yield) - parseFloat(b.recipe.yield) } )
-    //       this.cuisine = resp[resp.length - 1].recipe;
-    //     });
   }
   goToHome(){
     this.nav.setRoot(HomePage);
