@@ -34,6 +34,7 @@ export class AddIngredient {
   private get_parent_category_ingredient(){
     this.ingredientService.ingredient_parent_category()
       .then(data => {
+        console.log(data)
           this.ingredient_categories = data['data'];
         })
       .catch( error => {
@@ -70,10 +71,11 @@ export class AddChildIngredient {
   ) {
     this.parent_id = this.params.get('ingredient_id');
     this.get_parent_category_ingredient();
-    this.todo = {title: "", quantity: 0}
+    this.todo = {id: "", title: "", quantity: 0}
   }
 
   registerIngredient() {
+    this.post_child_ingredient();
     this.presentAlert();
     this.dismiss();
   }
@@ -81,7 +83,7 @@ export class AddChildIngredient {
   presentAlert() {
   let alert = this.alertCtrl.create({
     title: 'Add Ingredient',
-    subTitle: this.todo.title + " Added",
+    subTitle: "Ingredient Added",
     buttons: ['Dismiss']
   });
   alert.present();
@@ -89,6 +91,16 @@ export class AddChildIngredient {
 
   public get_parent_category_ingredient(){
     this.ingredientService.get_child_ingredient(this.parent_id)
+      .then(data => {
+          this.ingredient_list = data['data'];
+          console.log(this.ingredient_list);
+        })
+      .catch( error => {
+              console.log(error.message)
+            })
+  }
+  public post_child_ingredient(){
+    this.ingredientService.post_child_ingredient(this.todo.id, this.todo.quantity, 1)
       .then(data => {
           this.ingredient_list = data['data'];
         })

@@ -15,14 +15,14 @@
   <form (submit)="registerIngredient()" padding class="bg-register-image" >
     <ion-item>
       <ion-label>Title</ion-label>
-      <ion-select [(ngModel)]="todo.title" name='title'>
-        <ion-option name="title_option" *ngFor="let ingredient of ingredient_list" value="{{ingredient.name}}">{{ingredient.name}}</ion-option>
+      <ion-select [(ngModel)]="todo.id" name='title'>
+        <ion-option name="title_option" *ngFor="let ingredient of ingredient_list" value="{{ingredient.id}}">{{ingredient.name}}</ion-option>
       </ion-select>
     </ion-item>
   <ion-item>
     <ion-label>Quantity</ion-label>
     <ion-input type="number" text-right [(ngModel)]="todo.quantity" name="quantity"></ion-input>
   </ion-item>
-  <button ion-button type="submit" [disabled]="!(todo.title&&todo.quantity)" block>Add Ingredient</button>
+  <button ion-button type="submit" [disabled]="!(todo.id&&todo.quantity)" block>Add Ingredient</button>
   </form>
 </ion-content>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage, ModalController, NavParams, ViewController } from 'ionic-angular';
-
+import { IngredientServiceProvider } from '../../providers/ingredient-service/ingredient-service';
 import { AuthProvider } from '../../providers/auth/auth';
 import { HomePage } from '../../pages/home/home';
 
@@ -14,11 +14,27 @@ export class ListIngredient {
 
   ingredient_categories: Array<{title: string, id: number}>;
 
-  constructor(public nav: NavController, public modalCtrl: ModalController, private auth: AuthProvider) {
-    
+  constructor(public nav: NavController,
+              public modalCtrl: ModalController,
+              public ingredientService: IngredientServiceProvider,
+              private auth: AuthProvider) {
+    this.ingredient_categories = [{title: "amar", id: 1}]
+    this.get_details();
   }
-  presentProfileModal() {
-    let profileModal = this.modalCtrl.create(Ingredient, { userId: 8675309 });
+
+  get_details(){
+    this.ingredientService.ingredient_user_parent_category()
+      .then(data => {
+          console.log(data);
+          this.ingredient_categories = data['data'];
+          console.log(data['data']);
+        })
+      .catch( error => {
+              console.log(error.message)
+            })
+  }
+  presentProfileModal(id) {
+    let profileModal = this.modalCtrl.create(Ingredient, { parent_id: id });
     profileModal.present();
    }
 
@@ -40,15 +56,29 @@ export class ListIngredient {
 export class Ingredient {
   character;
   cuisine;
-  title;
+  id;
 
   constructor(
     public params: NavParams,
     public nav: NavController,
     public viewCtrl: ViewController,
+    public ingredientService: IngredientServiceProvider
   ) {
-    this.cuisine = {'digest': [{label: "amar", unit: 120, total: 120}], image: true}
-    this.title = this.params.get('userId');
+    this.id = this.params.get('parent_id');
+    this.get_child_ingredients(this.id);
+  }
+
+  get_child_ingredients(id){
+    this.ingredientService.get_user_child_ingredient(id)
+      .then(data => {
+          console.log(data);
+          this.cuisine = data;
+          console.log(this.cuisine);
+        })
+      .catch( error => {
+              console.log(error.message)
+            })
+
   }
   goToHome(){
     this.nav.setRoot(HomePage);
