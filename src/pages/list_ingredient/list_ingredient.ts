@@ -3,6 +3,7 @@ import { NavController, IonicPage, ModalController, NavParams, ViewController } 
 import { IngredientServiceProvider } from '../../providers/ingredient-service/ingredient-service';
 import { AuthProvider } from '../../providers/auth/auth';
 import { HomePage } from '../../pages/home/home';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 
@@ -13,21 +14,29 @@ import { HomePage } from '../../pages/home/home';
 export class ListIngredient {
 
   ingredient_categories: Array<{title: string, id: number}>;
+  user_id: number;
 
   constructor(public nav: NavController,
               public modalCtrl: ModalController,
               public ingredientService: IngredientServiceProvider,
+              private storage: Storage,
               private auth: AuthProvider) {
-    this.ingredient_categories = [{title: "amar", id: 1}]
-    this.get_details();
+     this.storage.get('user_id').then((val) => {
+      this.user_id = val;
+      this.get_details(val)
+  })
   }
 
-  get_details(){
-    this.ingredientService.ingredient_user_parent_category()
+  get_user_id(){
+    this.storage.get('user_id').then((val) => {
+      this.user_id = val;
+  })
+  }
+
+  get_details(user_id){
+    this.ingredientService.ingredient_user_parent_category(user_id)
       .then(data => {
-          console.log(data);
           this.ingredient_categories = data['data'];
-          console.log(data['data']);
         })
       .catch( error => {
               console.log(error.message)
@@ -57,23 +66,23 @@ export class Ingredient {
   character;
   cuisine;
   id;
-
+  user_id;
   constructor(
     public params: NavParams,
     public nav: NavController,
     public viewCtrl: ViewController,
+    private storage: Storage,
     public ingredientService: IngredientServiceProvider
   ) {
-    this.id = this.params.get('parent_id');
-    this.get_child_ingredients(this.id);
+    this.storage.get('user_id').then((val) => {
+      this.get_child_ingredients(this.params.get('parent_id'), val);
+  })
   }
 
-  get_child_ingredients(id){
-    this.ingredientService.get_user_child_ingredient(id)
+  get_child_ingredients(id, user_id){
+    this.ingredientService.get_user_child_ingredient(id, user_id)
       .then(data => {
-          console.log(data);
           this.cuisine = data;
-          console.log(this.cuisine);
         })
       .catch( error => {
               console.log(error.message)

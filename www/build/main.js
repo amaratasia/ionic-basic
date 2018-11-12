@@ -61,8 +61,8 @@ GlobalProvider = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__list_ingredient_list_ingredient__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_ingredient_add_ingredient__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__list_ingredient_list_ingredient__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_ingredient_add_ingredient__ = __webpack_require__(51);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -172,7 +172,7 @@ module.exports = webpackAsyncContext;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PostProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(157);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -190,24 +190,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var PostProvider = (function () {
     function PostProvider(http) {
         this.http = http;
-        /*
-        Option 1
-        change below authUrl to your RESTful URL for authorisation
-        */
-        this.authUrl = 'http://0.0.0.0:3000/amars';
-        /*
-        Option 2
-        to integrate with WordPress, visit https://github.com/RogerShenAU/wp-ionic-login-auth and follow the instructions
-        */
-        // this.authUrl = 'https://www.example.com/wp-ionic-login-auth'; 
-        /*
-        Option 3
-        to use PHP as server side authorisation, visit https://github.com/RogerShenAU/php-ionic-login-auth and follow the instructions
-        */
-        // this.authUrl = 'https://www.example.com/php-ionic-login-auth/login.php'; 
+        this.authUrl = 'http://0.0.0.0:9090/users/login';
     }
-    PostProvider.prototype.restAuth = function (username, password) {
-        return this.http.post(this.authUrl, { "username": username, "password": password })
+    PostProvider.prototype.restAuth = function (email, password) {
+        return this.http.post(this.authUrl, { "email": email, "password": password })
             .map(function (res) { return res.json(); });
     };
     return PostProvider;
@@ -246,14 +232,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(272);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_storage__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_storage__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_global_global__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_post_post__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_auth_auth__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_add_ingredient_add_ingredient__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_list_ingredient_list_ingredient__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_ingredient_service_ingredient_service__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_add_ingredient_add_ingredient__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_list_ingredient_list_ingredient__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_ingredient_service_ingredient_service__ = __webpack_require__(52);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -379,7 +365,7 @@ MyApp = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_post_post__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_global_global__ = __webpack_require__(105);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -397,9 +383,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var User = (function () {
-    function User(displayname, username, password, remember) {
-        this.displayname = displayname;
-        this.username = username;
+    function User(email, password, remember) {
+        this.email = email;
         this.password = password;
         this.remember = remember;
     }
@@ -415,28 +400,28 @@ var AuthProvider = (function () {
     }
     AuthProvider.prototype.login = function (credentials) {
         var _this = this;
-        if (credentials.username === null || credentials.password === null) {
+        if (credentials.email === null || credentials.password === null) {
             return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].throw("Please insert credentials");
         }
         else {
             return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].create(function (observer) {
-                _this.post.restAuth(credentials.username, credentials.password).subscribe(function (response) {
+                _this.post.restAuth(credentials.email, credentials.password).subscribe(function (response) {
                     _this.returnAccess = response;
                     if (_this.returnAccess.result != "Success!") {
                         _this.global.showError(_this.returnAccess.result);
                     }
                     else {
                         if (credentials.remember == "yes") {
-                            _this.storage.set('displayname', _this.returnAccess.displayname);
-                            _this.storage.set('username', credentials.username);
+                            _this.storage.set('user_id', _this.returnAccess.user_id);
+                            _this.storage.set('email', credentials.email);
                             _this.storage.set('password', credentials.password);
                         }
                         else {
-                            _this.storage.remove("username");
+                            _this.storage.remove("email");
                             _this.storage.remove("password");
                             _this.storage.remove("displayname");
                         }
-                        _this.currentUser = new User(_this.returnAccess.displayname, credentials.username, credentials.password, credentials.remember);
+                        _this.currentUser = new User(credentials.email, credentials.password, credentials.remember);
                         observer.next(true);
                         observer.complete();
                     }
@@ -448,20 +433,16 @@ var AuthProvider = (function () {
         return this.currentUser;
     };
     AuthProvider.prototype.logout = function () {
+        var _this = this;
         return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].create(function (observer) {
-            // if(this.currentUser.remember == "no"){
-            //   this.storage.remove("username");
-            //   this.storage.remove("password");
-            //   this.storage.remove("displayname");
-            // }
-            // this.currentUser = null;
+            _this.storage.remove("user_id");
             observer.next(true);
             observer.complete();
         });
     };
-    AuthProvider.prototype.postAuth = function (username, password) {
+    AuthProvider.prototype.postAuth = function (email, password) {
         var _this = this;
-        this.post.restAuth(username, password).subscribe(function (response) {
+        this.post.restAuth(email, password).subscribe(function (response) {
             _this.returnAccess = response;
         });
     };
@@ -469,14 +450,15 @@ var AuthProvider = (function () {
 }());
 AuthProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Injector */], __WEBPACK_IMPORTED_MODULE_4__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_3__providers_post_post__["a" /* PostProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Injector */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Injector */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__providers_global_global__["a" /* GlobalProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_global_global__["a" /* GlobalProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_post_post__["a" /* PostProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_post_post__["a" /* PostProvider */]) === "function" && _d || Object])
 ], AuthProvider);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=auth.js.map
 
 /***/ }),
 
-/***/ 50:
+/***/ 51:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -484,10 +466,10 @@ AuthProvider = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddChildIngredient; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -504,24 +486,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var AddIngredient = (function () {
-    function AddIngredient(nav, modalCtrl, ingredientService, auth) {
+    function AddIngredient(nav, modalCtrl, ingredientService, storage, auth) {
+        var _this = this;
         this.nav = nav;
         this.modalCtrl = modalCtrl;
         this.ingredientService = ingredientService;
+        this.storage = storage;
         this.auth = auth;
+        this.storage.get('user_id').then(function (val) {
+            _this.user_id = val;
+            _this.get_parent_category_ingredient(val);
+        });
     }
     AddIngredient.prototype.openIngredientDetail = function (id) {
         var profileModal = this.modalCtrl.create(AddChildIngredient, { ingredient_id: id });
         profileModal.present();
     };
-    AddIngredient.prototype.ngOnInit = function () {
-        this.get_parent_category_ingredient();
-    };
-    AddIngredient.prototype.get_parent_category_ingredient = function () {
+    AddIngredient.prototype.get_parent_category_ingredient = function (user_id) {
         var _this = this;
-        this.ingredientService.ingredient_parent_category()
+        this.ingredientService.ingredient_parent_category(user_id)
             .then(function (data) {
-            console.log(data);
             _this.ingredient_categories = data['data'];
         })
             .catch(function (error) {
@@ -544,19 +528,23 @@ AddIngredient = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-add-ingredient',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/add_ingredient.html"*/'<ion-header> <ion-navbar> <ion-title>My Ingredients</ion-title> </ion-navbar> </ion-header> \n<ion-content padding>\n	<ion-buttons end>\n      	<button ion-item *ngFor="let ingredient of ingredient_categories" (click)="openIngredientDetail(ingredient.id)">\n		  <ion-icon name="md-add"></ion-icon> Add {{ingredient.name}}\n		</button>\n    </ion-buttons>\n<ion-row center>  \n <ion-col text-center>   \n  <button ion-button icon-only (click)="goToHome()">\n	<ion-icon name="home"></ion-icon>\n	</button>\n </ion-col> \n</ion-row>\n</ion-content>'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/add_ingredient.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _e || Object])
 ], AddIngredient);
 
 var AddChildIngredient = (function () {
-    function AddChildIngredient(params, nav, ingredientService, viewCtrl, formBuilder, alertCtrl) {
+    function AddChildIngredient(params, nav, ingredientService, viewCtrl, storage, alertCtrl) {
+        var _this = this;
         this.params = params;
         this.nav = nav;
         this.ingredientService = ingredientService;
         this.viewCtrl = viewCtrl;
-        this.formBuilder = formBuilder;
+        this.storage = storage;
         this.alertCtrl = alertCtrl;
         this.parent_id = this.params.get('ingredient_id');
-        this.get_parent_category_ingredient();
+        this.storage.get('user_id').then(function (val) {
+            _this.user_id = val;
+            _this.get_parent_category_ingredient(val);
+        });
         this.todo = { id: "", title: "", quantity: 0 };
     }
     AddChildIngredient.prototype.registerIngredient = function () {
@@ -572,12 +560,11 @@ var AddChildIngredient = (function () {
         });
         alert.present();
     };
-    AddChildIngredient.prototype.get_parent_category_ingredient = function () {
+    AddChildIngredient.prototype.get_parent_category_ingredient = function (user_id) {
         var _this = this;
-        this.ingredientService.get_child_ingredient(this.parent_id)
+        this.ingredientService.get_child_ingredient(this.parent_id, user_id)
             .then(function (data) {
             _this.ingredient_list = data['data'];
-            console.log(_this.ingredient_list);
         })
             .catch(function (error) {
             console.log(error.message);
@@ -585,7 +572,7 @@ var AddChildIngredient = (function () {
     };
     AddChildIngredient.prototype.post_child_ingredient = function () {
         var _this = this;
-        this.ingredientService.post_child_ingredient(this.todo.id, this.todo.quantity, 1)
+        this.ingredientService.post_child_ingredient(this.todo.id, this.todo.quantity, this.user_id)
             .then(function (data) {
             _this.ingredient_list = data['data'];
         })
@@ -605,21 +592,21 @@ AddChildIngredient = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-add-ingredient-modal',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/ingredient.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Add Ingredient\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content >\n  <form (submit)="registerIngredient()" padding class="bg-register-image" >\n    <ion-item>\n      <ion-label>Title</ion-label>\n      <ion-select [(ngModel)]="todo.id" name=\'title\'>\n        <ion-option name="title_option" *ngFor="let ingredient of ingredient_list" value="{{ingredient.id}}">{{ingredient.name}}</ion-option>\n      </ion-select>\n    </ion-item>\n  <ion-item>\n    <ion-label>Quantity</ion-label>\n    <ion-input type="number" text-right [(ngModel)]="todo.quantity" name="quantity"></ion-input>\n  </ion-item>\n  <button ion-button type="submit" [disabled]="!(todo.id&&todo.quantity)" block>Add Ingredient</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/ingredient.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _k || Object])
+    __metadata("design:paramtypes", [typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _l || Object])
 ], AddChildIngredient);
 
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 //# sourceMappingURL=add_ingredient.js.map
 
 /***/ }),
 
-/***/ 51:
+/***/ 52:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IngredientServiceProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(157);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -644,40 +631,40 @@ var IngredientServiceProvider = (function () {
     function IngredientServiceProvider(http) {
         this.http = http;
     }
-    IngredientServiceProvider.prototype.ingredient_user_parent_category = function () {
+    IngredientServiceProvider.prototype.ingredient_user_parent_category = function (user_id) {
         var _this = this;
         return new Promise(function (resolve) {
-            _this.http.get("http://0.0.0.0:9090/user_ingredients?user_parent_group=1")
+            _this.http.get("http://0.0.0.0:9090/user_ingredients?user_parent_group=1&user_id=" + user_id)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 resolve(data);
             });
         });
     };
-    IngredientServiceProvider.prototype.ingredient_parent_category = function () {
+    IngredientServiceProvider.prototype.ingredient_parent_category = function (user_id) {
         var _this = this;
         return new Promise(function (resolve) {
-            _this.http.get("http://0.0.0.0:9090/ingredients")
+            _this.http.get("http://0.0.0.0:9090/ingredients?user_id=" + user_id)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 resolve(data);
             });
         });
     };
-    IngredientServiceProvider.prototype.get_child_ingredient = function (parent_id) {
+    IngredientServiceProvider.prototype.get_child_ingredient = function (parent_id, user_id) {
         var _this = this;
         return new Promise(function (resolve) {
-            _this.http.get("http://0.0.0.0:9090/ingredients?parent_id=" + parent_id)
+            _this.http.get("http://0.0.0.0:9090/ingredients?parent_id=" + parent_id + "&user_id=" + user_id)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 resolve(data);
             });
         });
     };
-    IngredientServiceProvider.prototype.get_user_child_ingredient = function (id) {
+    IngredientServiceProvider.prototype.get_user_child_ingredient = function (id, user_id) {
         var _this = this;
         return new Promise(function (resolve) {
-            _this.http.get("http://0.0.0.0:9090/user_ingredients.json")
+            _this.http.get("http://0.0.0.0:9090/user_ingredients.json?&user_id=" + user_id + "&parent_id=" + id)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 resolve(data);
@@ -703,15 +690,14 @@ var IngredientServiceProvider = (function () {
 }());
 IngredientServiceProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
 ], IngredientServiceProvider);
 
-var _a;
 //# sourceMappingURL=ingredient-service.js.map
 
 /***/ }),
 
-/***/ 52:
+/***/ 53:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -719,9 +705,10 @@ var _a;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Ingredient; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -736,22 +723,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ListIngredient = (function () {
-    function ListIngredient(nav, modalCtrl, ingredientService, auth) {
+    function ListIngredient(nav, modalCtrl, ingredientService, storage, auth) {
+        var _this = this;
         this.nav = nav;
         this.modalCtrl = modalCtrl;
         this.ingredientService = ingredientService;
+        this.storage = storage;
         this.auth = auth;
-        this.ingredient_categories = [{ title: "amar", id: 1 }];
-        this.get_details();
+        this.storage.get('user_id').then(function (val) {
+            _this.user_id = val;
+            _this.get_details(val);
+        });
     }
-    ListIngredient.prototype.get_details = function () {
+    ListIngredient.prototype.get_user_id = function () {
         var _this = this;
-        this.ingredientService.ingredient_user_parent_category()
+        this.storage.get('user_id').then(function (val) {
+            _this.user_id = val;
+        });
+    };
+    ListIngredient.prototype.get_details = function (user_id) {
+        var _this = this;
+        this.ingredientService.ingredient_user_parent_category(user_id)
             .then(function (data) {
-            console.log(data);
             _this.ingredient_categories = data['data'];
-            console.log(data['data']);
         })
             .catch(function (error) {
             console.log(error.message);
@@ -776,25 +772,30 @@ ListIngredient = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-list-ingredient',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/list_ingredient/list_ingredient.html"*/'<ion-header> <ion-navbar> <ion-title>My Ingredients</ion-title> </ion-navbar> </ion-header> \n<ion-content padding>\n	<ion-buttons end>\n      	<button ion-item *ngFor="let ingredient of ingredient_categories" (click)="presentProfileModal(ingredient.id)">\n		  <ion-icon name="md-basket"></ion-icon> {{ingredient.name}}\n		</button>\n    </ion-buttons>\n<ion-row center>  \n <ion-col text-center>   \n  <button ion-button icon-only (click)="goToHome()">\n	<ion-icon name="home"></ion-icon>\n	</button>\n </ion-col> \n</ion-row>\n</ion-content>'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/list_ingredient/list_ingredient.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */],
+        __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]])
 ], ListIngredient);
 
 var Ingredient = (function () {
-    function Ingredient(params, nav, viewCtrl, ingredientService) {
+    function Ingredient(params, nav, viewCtrl, storage, ingredientService) {
+        var _this = this;
         this.params = params;
         this.nav = nav;
         this.viewCtrl = viewCtrl;
+        this.storage = storage;
         this.ingredientService = ingredientService;
-        this.id = this.params.get('parent_id');
-        this.get_child_ingredients(this.id);
+        this.storage.get('user_id').then(function (val) {
+            _this.get_child_ingredients(_this.params.get('parent_id'), val);
+        });
     }
-    Ingredient.prototype.get_child_ingredients = function (id) {
+    Ingredient.prototype.get_child_ingredients = function (id, user_id) {
         var _this = this;
-        this.ingredientService.get_user_child_ingredient(id)
+        this.ingredientService.get_user_child_ingredient(id, user_id)
             .then(function (data) {
-            console.log(data);
             _this.cuisine = data;
-            console.log(_this.cuisine);
         })
             .catch(function (error) {
             console.log(error.message);
@@ -812,10 +813,13 @@ Ingredient = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-list-ingredient-modal',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/list_ingredient/ingredient.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Details\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<!--  -->\n<ion-content >\n  <ion-list>\n    <ion-item *ngFor="let item of cuisine">\n      <ion-label color="primary">{{item.ingredient_name}}</ion-label>\n      <ion-input placeholder="Text Input" (ionChange)="updateIngredient()" value="{{item.quanity}}"></ion-input>\n    </ion-item>\n  </ion-list>\n  <ion-row center>  \n   <ion-col text-center>   \n    <button ion-button icon-only (click)="goToHome()">\n    <ion-icon name="home"></ion-icon>\n    </button>\n   </ion-col> \n  </ion-row>\n</ion-content>'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/list_ingredient/ingredient.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */]) === "function" && _h || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */],
+        __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */]])
 ], Ingredient);
 
-var _a, _b, _c, _d, _e, _f, _g, _h;
 //# sourceMappingURL=list_ingredient.js.map
 
 /***/ })

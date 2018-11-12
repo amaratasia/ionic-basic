@@ -15,7 +15,7 @@
             <ion-list inset>
 
               <ion-item>
-                <ion-input type="text" placeholder="Username" name="username" [(ngModel)]="credentials.username" required></ion-input>
+                <ion-input type="text" placeholder="email" name="email" [(ngModel)]="credentials.email" required></ion-input>
               </ion-item>
 
               <ion-item>
@@ -33,7 +33,7 @@
 
         <ion-row>
           <ion-col class="signup-col">
-            <button ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid">Lossgin</button>
+            <button ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid">Login</button>
           </ion-col>
         </ion-row>
 

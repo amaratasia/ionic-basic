@@ -7,15 +7,13 @@ import { GlobalProvider } from '../../providers/global/global';
 
 export class User {
   
-  displayname: string;
-  username: string;
+  email: string;
   password: string;
   remember: string;
 
-  constructor(displayname: string, username: string, password: string, remember: string) {
+  constructor(email: string, password: string, remember: string) {
 
-    this.displayname = displayname;
-    this.username = username;
+    this.email = email;
     this.password = password;
     this.remember = remember;
   }
@@ -33,35 +31,31 @@ export class AuthProvider {
   }
 
   public login(credentials) {
-    
-    if (credentials.username === null || credentials.password === null) {
+
+    if (credentials.email === null || credentials.password === null) {
 
       return Observable.throw("Please insert credentials");
     } else {
 
       return Observable.create(observer => {
 
-        this.post.restAuth(credentials.username,credentials.password).subscribe( response => {
+        this.post.restAuth(credentials.email, credentials.password).subscribe( response => {
           this.returnAccess = response;
-
           if(this.returnAccess.result != "Success!"){
-
             this.global.showError(this.returnAccess.result);
           }else{            
-
             if(credentials.remember == "yes"){
-
-              this.storage.set('displayname', this.returnAccess.displayname);
-              this.storage.set('username', credentials.username);
+              this.storage.set('user_id', this.returnAccess.user_id);
+              this.storage.set('email', credentials.email);
               this.storage.set('password', credentials.password);
             }else{
 
-              this.storage.remove("username");
+              this.storage.remove("email");
               this.storage.remove("password");
               this.storage.remove("displayname");
             }       
             
-            this.currentUser = new User(this.returnAccess.displayname, credentials.username, credentials.password, credentials.remember);      
+            this.currentUser = new User(credentials.email, credentials.password, credentials.remember);      
             
             observer.next(true);
             observer.complete();
@@ -77,22 +71,14 @@ export class AuthProvider {
 
   public logout() {
     return Observable.create(observer => {
-     
-      // if(this.currentUser.remember == "no"){
-      //   this.storage.remove("username");
-      //   this.storage.remove("password");
-      //   this.storage.remove("displayname");
-      // }
-      // this.currentUser = null;
+      this.storage.remove("user_id");
       observer.next(true);
       observer.complete();
     });
   }
 
-  postAuth(username, password){
-
-    this.post.restAuth(username,password).subscribe( response => {
-
+  postAuth(email, password){
+    this.post.restAuth(email,password).subscribe( response => {
       this.returnAccess = response;
     });
   }

@@ -3,8 +3,7 @@ import { NavController, IonicPage, ModalController, NavParams, ViewController, A
 import { IngredientServiceProvider } from '../../providers/ingredient-service/ingredient-service';
 import { AuthProvider } from '../../providers/auth/auth';
 import { HomePage } from '../../pages/home/home';
-import {Validators, FormBuilder, FormGroup } from '@angular/forms';
-
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 
@@ -15,10 +14,17 @@ import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 export class AddIngredient {
 
   ingredient_categories: Array<{title: string, id: number}>;
-
-  constructor(public nav: NavController, public modalCtrl: ModalController,
+user_id: number;
+  constructor(public nav: NavController,
+              public modalCtrl: ModalController,
               public ingredientService: IngredientServiceProvider,
+              private storage: Storage,
               private auth: AuthProvider) {
+    this.storage.get('user_id').then((val) => {
+        this.user_id = val;
+      this.get_parent_category_ingredient(val);
+  })
+    
     
   }
 
@@ -27,14 +33,9 @@ export class AddIngredient {
     profileModal.present();
   }
 
-  public ngOnInit(){
-     this.get_parent_category_ingredient();
-  }
-
-  private get_parent_category_ingredient(){
-    this.ingredientService.ingredient_parent_category()
+  private get_parent_category_ingredient(user_id){
+    this.ingredientService.ingredient_parent_category(user_id)
       .then(data => {
-        console.log(data)
           this.ingredient_categories = data['data'];
         })
       .catch( error => {
@@ -61,16 +62,21 @@ export class AddChildIngredient {
   parent_id: number;
   ingredient_list: any;
   todo: any;
+  user_id: any;
   constructor(
     public params: NavParams,
     public nav: NavController,
     public ingredientService: IngredientServiceProvider,
     public viewCtrl: ViewController,
-    private formBuilder: FormBuilder,
+    private storage: Storage,
     private alertCtrl: AlertController
   ) {
     this.parent_id = this.params.get('ingredient_id');
-    this.get_parent_category_ingredient();
+      this.storage.get('user_id').then((val) => {
+        this.user_id = val;
+      this.get_parent_category_ingredient(val);
+  })
+    
     this.todo = {id: "", title: "", quantity: 0}
   }
 
@@ -89,18 +95,17 @@ export class AddChildIngredient {
   alert.present();
 }
 
-  public get_parent_category_ingredient(){
-    this.ingredientService.get_child_ingredient(this.parent_id)
+  public get_parent_category_ingredient(user_id){
+    this.ingredientService.get_child_ingredient(this.parent_id, user_id)
       .then(data => {
           this.ingredient_list = data['data'];
-          console.log(this.ingredient_list);
         })
       .catch( error => {
               console.log(error.message)
             })
   }
   public post_child_ingredient(){
-    this.ingredientService.post_child_ingredient(this.todo.id, this.todo.quantity, 1)
+    this.ingredientService.post_child_ingredient(this.todo.id, this.todo.quantity, this.user_id)
       .then(data => {
           this.ingredient_list = data['data'];
         })

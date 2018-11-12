@@ -15,49 +15,39 @@ import { GlobalProvider } from '../../providers/global/global';
 
 export class LoginPage {
 
-  credentials = {username: '', password: '', remember: 'yes'}; // select remember by default
+  credentials = {email: '', password: '', remember: 'yes'}; // select remember by default
 
   constructor(private nav: NavController, private auth: AuthProvider, public global:GlobalProvider, private storage: Storage) {
 
   }
 
   ngOnInit(){
-    
-    this.storage.get('username').then((val) => {
-
+    this.storage.get('email').then((val) => {
       if(val != null){
-
-        this.credentials.username = val;
+        this.credentials.email = val;
       }
     });
-
     this.storage.get('password').then((val) => {
-
       if(val != null){
-
         this.credentials.password = val;
       }
     });
-  }
-
-  openPage(){
-    // this.nav.setRoot(SignUpPage);
+    this.storage.get('user_id').then((val) => {
+      if(val != null){
+      this.nav.setRoot('HomePage');
+    }
+    });
   }
 
   updateStatus(){
-
     if(this.credentials.remember == 'no'){
-
       this.credentials.remember = 'yes';
     }else{
-
       this.credentials.remember = 'no';
     }
   }
   
   public login() {
-    this.global.showLoading();
-
     this.auth.login(this.credentials).subscribe(allowed => {
 
       if (allowed) {

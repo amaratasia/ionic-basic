@@ -9,30 +9,12 @@ export class PostProvider {
 	authUrl: string;
 
 	constructor(http:Http){
-
 		this.http = http;
-		
-		/* 
-		Option 1
-		change below authUrl to your RESTful URL for authorisation
-		*/
-		this.authUrl = 'http://0.0.0.0:3000/amars'; 
-
-		/* 
-		Option 2
-		to integrate with WordPress, visit https://github.com/RogerShenAU/wp-ionic-login-auth and follow the instructions
-		*/
-		// this.authUrl = 'https://www.example.com/wp-ionic-login-auth'; 
-
-		/* 
-		Option 3
-		to use PHP as server side authorisation, visit https://github.com/RogerShenAU/php-ionic-login-auth and follow the instructions
-		*/
-		// this.authUrl = 'https://www.example.com/php-ionic-login-auth/login.php'; 
+		this.authUrl = 'http://0.0.0.0:9090/users/login'; 
 	}
 
-	restAuth(username,password){
-		return this.http.post(this.authUrl,{"username":username,"password":password})
+	restAuth(email, password){
+		return this.http.post(this.authUrl,{"email": email,"password":password})
 			.map(res => res.json());
 	}
 }
