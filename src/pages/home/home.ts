@@ -4,6 +4,7 @@ import { NavController, IonicPage } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { ListIngredient } from '../list_ingredient/list_ingredient';
 import { AddIngredient } from '../add_ingredient/add_ingredient';
+import { HelpCooking } from '../help_cooking/help_cooking';
 
 @IonicPage()
 
@@ -25,7 +26,7 @@ export class HomePage {
   	this.main_page_list = [
             {title: 'List my ingredients', component: ListIngredient},
             {title: 'Add Ingredients', component: AddIngredient},
-            {title: 'Help me with Cooking', component: "help_cooking"}
+            {title: 'Help me with Cooking', component: HelpCooking}
         ];
   }
   navigate_menu(event){

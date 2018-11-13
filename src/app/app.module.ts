@@ -14,6 +14,8 @@ import { AddIngredient } from '../pages/add_ingredient/add_ingredient';
 import { ListIngredient } from '../pages/list_ingredient/list_ingredient';
 import { Ingredient } from '../pages/list_ingredient/list_ingredient';
 import { AddChildIngredient } from '../pages/add_ingredient/add_ingredient';
+import { HelpCooking } from '../pages/help_cooking/help_cooking';
+import { Recipe } from '../pages/help_cooking/help_cooking';
 import { IngredientServiceProvider } from '../providers/ingredient-service/ingredient-service';
 
 @NgModule({
@@ -22,6 +24,8 @@ import { IngredientServiceProvider } from '../providers/ingredient-service/ingre
     ListIngredient,
     Ingredient,
     AddIngredient,
+    HelpCooking,
+    Recipe,
     AddChildIngredient
   ],
   imports: [
@@ -36,6 +40,8 @@ import { IngredientServiceProvider } from '../providers/ingredient-service/ingre
     ListIngredient,
     Ingredient,
     AddIngredient,
+    HelpCooking,
+    Recipe,
     AddChildIngredient
     // SignUpPage
   ],

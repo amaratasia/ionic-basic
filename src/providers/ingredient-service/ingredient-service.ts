@@ -14,6 +14,24 @@ export class IngredientServiceProvider {
   constructor(public http: Http) {
 }
 
+  recipe_list(user_id) {
+    return new Promise(resolve => {
+      this.http.get("http://0.0.0.0:9090/recipes?user_id="+user_id)
+        .map(res => res.json())
+        .subscribe(data => {
+          resolve(data);
+        });
+    });
+  }
+  get_recipe(id) {
+    return new Promise(resolve => {
+      this.http.get("http://0.0.0.0:9090/recipes/"+id+".json")
+        .map(res => res.json())
+        .subscribe(data => {
+          resolve(data);
+        });
+    });
+  }
   ingredient_user_parent_category(user_id) {
     return new Promise(resolve => {
       this.http.get("http://0.0.0.0:9090/user_ingredients?user_parent_group=1&user_id="+user_id)
