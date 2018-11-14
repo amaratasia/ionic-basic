@@ -40,7 +40,7 @@ var GlobalProvider = (function () {
         this.loading.present();
     };
     GlobalProvider.prototype.dismissLoading = function () {
-        this.loading.dismiss();
+        // this.loading.dismiss();
     };
     return GlobalProvider;
 }());
@@ -75,11 +75,11 @@ webpackEmptyAsyncContext.id = 115;
 
 var map = {
 	"../pages/add_ingredient/add_ingredient.module": [
-		274,
+		275,
 		4
 	],
 	"../pages/help_cooking/help_cooking.module": [
-		275,
+		274,
 		3
 	],
 	"../pages/home/home.module": [
@@ -135,7 +135,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var PostProvider = (function () {
     function PostProvider(http) {
         this.http = http;
-        this.authUrl = 'http://0.0.0.0:9090/users/login';
+        this.authUrl = 'https://foodguideapi.herokuapp.com/users/login';
     }
     PostProvider.prototype.restAuth = function (email, password) {
         return this.http.post(this.authUrl, { "email": email, "password": password })
@@ -145,9 +145,10 @@ var PostProvider = (function () {
 }());
 PostProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
 ], PostProvider);
 
+var _a;
 //# sourceMappingURL=post.js.map
 
 /***/ }),
@@ -182,9 +183,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_global_global__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_post_post__ = __webpack_require__(159);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_auth_auth__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_add_ingredient_add_ingredient__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_add_ingredient_add_ingredient__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_list_ingredient_list_ingredient__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_help_cooking_help_cooking__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_help_cooking_help_cooking__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_ingredient_service_ingredient_service__ = __webpack_require__(41);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -230,8 +231,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                 links: [
-                    { loadChildren: '../pages/add_ingredient/add_ingredient.module#AddIngredientModule', name: 'AddIngredient', segment: 'add_ingredient', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/help_cooking/help_cooking.module#HelpCookingModule', name: 'HelpCooking', segment: 'help_cooking', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/add_ingredient/add_ingredient.module#AddIngredientModule', name: 'AddIngredient', segment: 'add_ingredient', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/list_ingredient/list_ingredient.module#ListIngredientModule', name: 'ListIngredient', segment: 'list_ingredient', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] }
@@ -444,7 +445,7 @@ var IngredientServiceProvider = (function () {
     IngredientServiceProvider.prototype.recipe_list = function (user_id) {
         var _this = this;
         return new Promise(function (resolve) {
-            _this.http.get("http://0.0.0.0:9090/recipes?user_id=" + user_id)
+            _this.http.get("https://foodguideapi.herokuapp.com/recipes?user_id=" + user_id)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 resolve(data);
@@ -454,7 +455,7 @@ var IngredientServiceProvider = (function () {
     IngredientServiceProvider.prototype.get_recipe = function (id) {
         var _this = this;
         return new Promise(function (resolve) {
-            _this.http.get("http://0.0.0.0:9090/recipes/" + id + ".json")
+            _this.http.get("https://foodguideapi.herokuapp.com/recipes/" + id + ".json")
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 resolve(data);
@@ -464,7 +465,7 @@ var IngredientServiceProvider = (function () {
     IngredientServiceProvider.prototype.ingredient_user_parent_category = function (user_id) {
         var _this = this;
         return new Promise(function (resolve) {
-            _this.http.get("http://0.0.0.0:9090/user_ingredients?user_parent_group=1&user_id=" + user_id)
+            _this.http.get("https://foodguideapi.herokuapp.com/user_ingredients?user_parent_group=1&user_id=" + user_id)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 resolve(data);
@@ -474,7 +475,7 @@ var IngredientServiceProvider = (function () {
     IngredientServiceProvider.prototype.ingredient_parent_category = function (user_id) {
         var _this = this;
         return new Promise(function (resolve) {
-            _this.http.get("http://0.0.0.0:9090/ingredients?user_id=" + user_id)
+            _this.http.get("https://foodguideapi.herokuapp.com/ingredients?user_id=" + user_id)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 resolve(data);
@@ -484,7 +485,7 @@ var IngredientServiceProvider = (function () {
     IngredientServiceProvider.prototype.get_child_ingredient = function (parent_id, user_id) {
         var _this = this;
         return new Promise(function (resolve) {
-            _this.http.get("http://0.0.0.0:9090/ingredients?parent_id=" + parent_id + "&user_id=" + user_id)
+            _this.http.get("https://foodguideapi.herokuapp.com/ingredients?parent_id=" + parent_id + "&user_id=" + user_id)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 resolve(data);
@@ -494,7 +495,7 @@ var IngredientServiceProvider = (function () {
     IngredientServiceProvider.prototype.get_user_child_ingredient = function (id, user_id) {
         var _this = this;
         return new Promise(function (resolve) {
-            _this.http.get("http://0.0.0.0:9090/user_ingredients.json?&user_id=" + user_id + "&parent_id=" + id)
+            _this.http.get("https://foodguideapi.herokuapp.com/user_ingredients.json?&user_id=" + user_id + "&parent_id=" + id)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 resolve(data);
@@ -509,7 +510,7 @@ var IngredientServiceProvider = (function () {
             user_id: user_id
         };
         return new Promise(function (resolve) {
-            _this.http.post("http://0.0.0.0:9090/user_ingredients.json", postParams)
+            _this.http.post("https://foodguideapi.herokuapp.com/user_ingredients.json", postParams)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 resolve(data);
@@ -520,9 +521,10 @@ var IngredientServiceProvider = (function () {
 }());
 IngredientServiceProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
 ], IngredientServiceProvider);
 
+var _a;
 //# sourceMappingURL=ingredient-service.js.map
 
 /***/ }),
@@ -531,8 +533,8 @@ IngredientServiceProvider = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AddIngredient; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddChildIngredient; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelpCooking; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Recipe; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__ = __webpack_require__(41);
@@ -554,8 +556,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var AddIngredient = (function () {
-    function AddIngredient(nav, modalCtrl, ingredientService, storage, auth) {
+var HelpCooking = (function () {
+    function HelpCooking(nav, modalCtrl, ingredientService, storage, auth) {
         var _this = this;
         this.nav = nav;
         this.modalCtrl = modalCtrl;
@@ -564,116 +566,87 @@ var AddIngredient = (function () {
         this.auth = auth;
         this.storage.get('user_id').then(function (val) {
             _this.user_id = val;
-            _this.get_parent_category_ingredient(val);
+            _this.get_details(val);
         });
     }
-    AddIngredient.prototype.openIngredientDetail = function (id) {
-        var profileModal = this.modalCtrl.create(AddChildIngredient, { ingredient_id: id });
-        profileModal.present();
-    };
-    AddIngredient.prototype.get_parent_category_ingredient = function (user_id) {
+    HelpCooking.prototype.get_user_id = function () {
         var _this = this;
-        this.ingredientService.ingredient_parent_category(user_id)
-            .then(function (data) {
-            _this.ingredient_categories = data['data'];
-        })
-            .catch(function (error) {
-            // this.alert(error.message);
-            console.log(error);
+        this.storage.get('user_id').then(function (val) {
+            _this.user_id = val;
         });
     };
-    AddIngredient.prototype.goToHome = function () {
+    HelpCooking.prototype.get_details = function (user_id) {
+        var _this = this;
+        this.ingredientService.recipe_list(user_id)
+            .then(function (data) {
+            _this.ingredient_categories = data;
+        })
+            .catch(function (error) {
+            console.log(error.message);
+        });
+    };
+    HelpCooking.prototype.presentProfileModal = function (id, name) {
+        var profileModal = this.modalCtrl.create(Recipe, { recipe_id: id, name: name });
+        profileModal.present();
+    };
+    HelpCooking.prototype.goToHome = function () {
         this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */]);
     };
-    AddIngredient.prototype.logout = function () {
+    HelpCooking.prototype.logout = function () {
         var _this = this;
         this.auth.logout().subscribe(function (succ) {
             _this.nav.setRoot('LoginPage');
         });
     };
-    return AddIngredient;
+    return HelpCooking;
 }());
-AddIngredient = __decorate([
+HelpCooking = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-add-ingredient',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/add_ingredient.html"*/'<ion-header> <ion-navbar> <ion-title>My Ingredients</ion-title> </ion-navbar> </ion-header> \n<ion-content padding>\n	<ion-buttons end>\n      	<button ion-item *ngFor="let ingredient of ingredient_categories" (click)="openIngredientDetail(ingredient.id)">\n		  <ion-icon name="md-add"></ion-icon> Add {{ingredient.name}}\n		</button>\n    </ion-buttons>\n<ion-row center>  \n <ion-col text-center>   \n  <button ion-button icon-only (click)="goToHome()">\n	<ion-icon name="home"></ion-icon>\n	</button>\n </ion-col> \n</ion-row>\n</ion-content>'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/add_ingredient.html"*/,
+        selector: 'page-help-cooking',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/help_cooking/help_cooking.html"*/'<ion-header> <ion-navbar> <ion-title>My Ingredients</ion-title> </ion-navbar> </ion-header> \n<ion-content padding>\n	<ion-buttons end>\n      	<button ion-item *ngFor="let ingredient of ingredient_categories" (click)="presentProfileModal(ingredient.id, ingredient.name)">\n		  <ion-icon name="md-basket"></ion-icon> {{ingredient.name}}\n		</button>\n    </ion-buttons>\n<ion-row center>  \n <ion-col text-center>   \n  <button ion-button icon-only (click)="goToHome()">\n	<ion-icon name="home"></ion-icon>\n	</button>\n </ion-col> \n</ion-row>\n</ion-content>'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/help_cooking/help_cooking.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */],
-        __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]])
-], AddIngredient);
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _e || Object])
+], HelpCooking);
 
-var AddChildIngredient = (function () {
-    function AddChildIngredient(params, nav, ingredientService, viewCtrl, storage, alertCtrl) {
+var Recipe = (function () {
+    function Recipe(params, nav, viewCtrl, storage, ingredientService) {
         var _this = this;
         this.params = params;
         this.nav = nav;
-        this.ingredientService = ingredientService;
         this.viewCtrl = viewCtrl;
         this.storage = storage;
-        this.alertCtrl = alertCtrl;
-        this.parent_id = this.params.get('ingredient_id');
+        this.ingredientService = ingredientService;
         this.storage.get('user_id').then(function (val) {
-            _this.user_id = val;
-            _this.get_parent_category_ingredient(val);
+            _this.get_recipe(_this.params.get('recipe_id'));
+            _this.re_name = _this.params.data.name;
         });
-        this.todo = { id: "", title: "", quantity: 0 };
     }
-    AddChildIngredient.prototype.registerIngredient = function () {
-        this.post_child_ingredient();
-        this.presentAlert();
-        this.dismiss();
-    };
-    AddChildIngredient.prototype.presentAlert = function () {
-        var alert = this.alertCtrl.create({
-            title: 'Add Ingredient',
-            subTitle: "Ingredient Added",
-            buttons: ['Dismiss']
-        });
-        alert.present();
-    };
-    AddChildIngredient.prototype.get_parent_category_ingredient = function (user_id) {
+    Recipe.prototype.get_recipe = function (id) {
         var _this = this;
-        this.ingredientService.get_child_ingredient(this.parent_id, user_id)
+        this.ingredientService.get_recipe(id)
             .then(function (data) {
-            _this.ingredient_list = data['data'];
+            _this.text = data["ingredient_list"];
         })
             .catch(function (error) {
             console.log(error.message);
         });
     };
-    AddChildIngredient.prototype.post_child_ingredient = function () {
-        var _this = this;
-        this.ingredientService.post_child_ingredient(this.todo.id, this.todo.quantity, this.user_id)
-            .then(function (data) {
-            _this.ingredient_list = data['data'];
-        })
-            .catch(function (error) {
-            console.log(error.message);
-        });
-    };
-    AddChildIngredient.prototype.goToHome = function () {
+    Recipe.prototype.goToHome = function () {
         this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */]);
     };
-    AddChildIngredient.prototype.dismiss = function () {
+    Recipe.prototype.dismiss = function () {
         this.viewCtrl.dismiss();
     };
-    return AddChildIngredient;
+    return Recipe;
 }());
-AddChildIngredient = __decorate([
+Recipe = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-add-ingredient-modal',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/ingredient.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Add Ingredient\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content >\n  <form (submit)="registerIngredient()" padding class="bg-register-image" >\n    <ion-item>\n      <ion-label>Title</ion-label>\n      <ion-select [(ngModel)]="todo.id" name=\'title\'>\n        <ion-option name="title_option" *ngFor="let ingredient of ingredient_list" value="{{ingredient.id}}">{{ingredient.name}}</ion-option>\n      </ion-select>\n    </ion-item>\n  <ion-item>\n    <ion-label>Quantity</ion-label>\n    <ion-input type="number" text-right [(ngModel)]="todo.quantity" name="quantity"></ion-input>\n  </ion-item>\n  <button ion-button type="submit" [disabled]="!(todo.id&&todo.quantity)" block>Add Ingredient</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/ingredient.html"*/
+        selector: 'page-list-recipe-modal',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/help_cooking/recipe.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      {{re_name}}\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content >\n<div style=" padding-left: 5%; padding-right: 3%; ">\n  <h6>\n  <div [innerHtml]="text"></div>\n</h6>\n</div>\n\n  <ion-row center>  \n   <ion-col text-center>   \n    <button ion-button icon-only (click)="goToHome()">\n    <ion-icon name="home"></ion-icon>\n    </button>\n   </ion-col> \n  </ion-row>\n</ion-content>\n'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/help_cooking/recipe.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */],
-        __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-], AddChildIngredient);
+    __metadata("design:paramtypes", [typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */]) === "function" && _k || Object])
+], Recipe);
 
-//# sourceMappingURL=add_ingredient.js.map
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+//# sourceMappingURL=help_cooking.js.map
 
 /***/ }),
 
@@ -686,8 +659,8 @@ AddChildIngredient = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__list_ingredient_list_ingredient__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_ingredient_add_ingredient__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__help_cooking_help_cooking__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_ingredient_add_ingredient__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__help_cooking_help_cooking__ = __webpack_require__(52);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -869,8 +842,8 @@ Ingredient = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelpCooking; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Recipe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AddIngredient; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddChildIngredient; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__ = __webpack_require__(41);
@@ -892,8 +865,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var HelpCooking = (function () {
-    function HelpCooking(nav, modalCtrl, ingredientService, storage, auth) {
+var AddIngredient = (function () {
+    function AddIngredient(nav, modalCtrl, ingredientService, storage, auth) {
         var _this = this;
         this.nav = nav;
         this.modalCtrl = modalCtrl;
@@ -902,90 +875,116 @@ var HelpCooking = (function () {
         this.auth = auth;
         this.storage.get('user_id').then(function (val) {
             _this.user_id = val;
-            _this.get_details(val);
+            _this.get_parent_category_ingredient(val);
         });
     }
-    HelpCooking.prototype.get_user_id = function () {
-        var _this = this;
-        this.storage.get('user_id').then(function (val) {
-            _this.user_id = val;
-        });
-    };
-    HelpCooking.prototype.get_details = function (user_id) {
-        var _this = this;
-        this.ingredientService.recipe_list(user_id)
-            .then(function (data) {
-            _this.ingredient_categories = data;
-            console.log(_this.ingredient_categories);
-        })
-            .catch(function (error) {
-            console.log(error.message);
-        });
-    };
-    HelpCooking.prototype.presentProfileModal = function (id) {
-        var profileModal = this.modalCtrl.create(Recipe, { recipe_id: id });
+    AddIngredient.prototype.openIngredientDetail = function (id) {
+        var profileModal = this.modalCtrl.create(AddChildIngredient, { ingredient_id: id });
         profileModal.present();
     };
-    HelpCooking.prototype.goToHome = function () {
+    AddIngredient.prototype.get_parent_category_ingredient = function (user_id) {
+        var _this = this;
+        this.ingredientService.ingredient_parent_category(user_id)
+            .then(function (data) {
+            _this.ingredient_categories = data['data'];
+        })
+            .catch(function (error) {
+            // this.alert(error.message);
+            console.log(error);
+        });
+    };
+    AddIngredient.prototype.goToHome = function () {
         this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */]);
     };
-    HelpCooking.prototype.logout = function () {
+    AddIngredient.prototype.logout = function () {
         var _this = this;
         this.auth.logout().subscribe(function (succ) {
             _this.nav.setRoot('LoginPage');
         });
     };
-    return HelpCooking;
+    return AddIngredient;
 }());
-HelpCooking = __decorate([
+AddIngredient = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-help-cooking',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/help_cooking/help_cooking.html"*/'<ion-header> <ion-navbar> <ion-title>My Ingredients</ion-title> </ion-navbar> </ion-header> \n<ion-content padding>\n	<ion-buttons end>\n      	<button ion-item *ngFor="let ingredient of ingredient_categories" (click)="presentProfileModal(ingredient.id)">\n		  <ion-icon name="md-basket"></ion-icon> {{ingredient.name}}\n		</button>\n    </ion-buttons>\n<ion-row center>  \n <ion-col text-center>   \n  <button ion-button icon-only (click)="goToHome()">\n	<ion-icon name="home"></ion-icon>\n	</button>\n </ion-col> \n</ion-row>\n</ion-content>'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/help_cooking/help_cooking.html"*/,
+        selector: 'page-add-ingredient',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/add_ingredient.html"*/'<ion-header> <ion-navbar> <ion-title>My Ingredients</ion-title> </ion-navbar> </ion-header> \n<ion-content padding>\n	<ion-buttons end>\n      	<button ion-item *ngFor="let ingredient of ingredient_categories" (click)="openIngredientDetail(ingredient.id)">\n		  <ion-icon name="md-add"></ion-icon> Add {{ingredient.name}}\n		</button>\n    </ion-buttons>\n<ion-row center>  \n <ion-col text-center>   \n  <button ion-button icon-only (click)="goToHome()">\n	<ion-icon name="home"></ion-icon>\n	</button>\n </ion-col> \n</ion-row>\n</ion-content>'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/add_ingredient.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _e || Object])
-], HelpCooking);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */],
+        __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]])
+], AddIngredient);
 
-var Recipe = (function () {
-    function Recipe(params, nav, viewCtrl, storage, ingredientService) {
+var AddChildIngredient = (function () {
+    function AddChildIngredient(params, nav, ingredientService, viewCtrl, storage, alertCtrl) {
         var _this = this;
         this.params = params;
         this.nav = nav;
+        this.ingredientService = ingredientService;
         this.viewCtrl = viewCtrl;
         this.storage = storage;
-        this.ingredientService = ingredientService;
-        this.cuisine = "Amar";
+        this.alertCtrl = alertCtrl;
+        this.parent_id = this.params.get('ingredient_id');
         this.storage.get('user_id').then(function (val) {
-            _this.get_recipe(_this.params.get('recipe_id'));
+            _this.user_id = val;
+            _this.get_parent_category_ingredient(val);
         });
+        this.todo = { id: "", title: "", quantity: 0 };
     }
-    Recipe.prototype.get_recipe = function (id) {
+    AddChildIngredient.prototype.registerIngredient = function () {
+        this.post_child_ingredient();
+        this.presentAlert();
+        this.dismiss();
+    };
+    AddChildIngredient.prototype.presentAlert = function () {
+        var alert = this.alertCtrl.create({
+            title: 'Add Ingredient',
+            subTitle: "Ingredient Added",
+            buttons: ['Dismiss']
+        });
+        alert.present();
+    };
+    AddChildIngredient.prototype.get_parent_category_ingredient = function (user_id) {
         var _this = this;
-        this.ingredientService.get_recipe(id)
+        this.ingredientService.get_child_ingredient(this.parent_id, user_id)
             .then(function (data) {
-            console.log(data["id"]);
-            console.log(data);
-            _this.details = data["ingredient_list"];
+            _this.ingredient_list = data['data'];
         })
             .catch(function (error) {
             console.log(error.message);
         });
     };
-    Recipe.prototype.goToHome = function () {
+    AddChildIngredient.prototype.post_child_ingredient = function () {
+        var _this = this;
+        this.ingredientService.post_child_ingredient(this.todo.id, this.todo.quantity, this.user_id)
+            .then(function (data) {
+            _this.ingredient_list = data['data'];
+        })
+            .catch(function (error) {
+            console.log(error.message);
+        });
+    };
+    AddChildIngredient.prototype.goToHome = function () {
         this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */]);
     };
-    Recipe.prototype.dismiss = function () {
+    AddChildIngredient.prototype.dismiss = function () {
         this.viewCtrl.dismiss();
     };
-    return Recipe;
+    return AddChildIngredient;
 }());
-Recipe = __decorate([
+AddChildIngredient = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-list-recipe-modal',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/help_cooking/recipe.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Recipe List\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content >\n  <p>Ama</p>\n  {{details}}\n  <ion-row center>  \n   <ion-col text-center>   \n    <button ion-button icon-only (click)="goToHome()">\n    <ion-icon name="home"></ion-icon>\n    </button>\n   </ion-col> \n  </ion-row>\n</ion-content>'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/help_cooking/recipe.html"*/
+        selector: 'page-add-ingredient-modal',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/ingredient.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Add Ingredient\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content >\n  <form (submit)="registerIngredient()" padding class="bg-register-image" >\n    <ion-item>\n      <ion-label>Title</ion-label>\n      <ion-select [(ngModel)]="todo.id" name=\'title\'>\n        <ion-option name="title_option" *ngFor="let ingredient of ingredient_list" value="{{ingredient.id}}">{{ingredient.name}}</ion-option>\n      </ion-select>\n    </ion-item>\n  <ion-item>\n    <ion-label>Quantity</ion-label>\n    <ion-input type="number" text-right [(ngModel)]="todo.quantity" name="quantity"></ion-input>\n  </ion-item>\n  <button ion-button type="submit" [disabled]="!(todo.id&&todo.quantity)" block>Add Ingredient</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/ingredient.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */]) === "function" && _k || Object])
-], Recipe);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */],
+        __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+], AddChildIngredient);
 
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
-//# sourceMappingURL=help_cooking.js.map
+//# sourceMappingURL=add_ingredient.js.map
 
 /***/ })
 

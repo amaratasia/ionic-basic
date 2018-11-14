@@ -33,7 +33,7 @@ export class GlobalProvider {
   }
 
   dismissLoading() {
-    this.loading.dismiss();
+    // this.loading.dismiss();
   }
 
 }

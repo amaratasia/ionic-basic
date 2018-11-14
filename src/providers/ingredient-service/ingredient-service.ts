@@ -16,7 +16,7 @@ export class IngredientServiceProvider {
 
   recipe_list(user_id) {
     return new Promise(resolve => {
-      this.http.get("http://0.0.0.0:9090/recipes?user_id="+user_id)
+      this.http.get("https://foodguideapi.herokuapp.com/recipes?user_id="+user_id)
         .map(res => res.json())
         .subscribe(data => {
           resolve(data);
@@ -25,7 +25,7 @@ export class IngredientServiceProvider {
   }
   get_recipe(id) {
     return new Promise(resolve => {
-      this.http.get("http://0.0.0.0:9090/recipes/"+id+".json")
+      this.http.get("https://foodguideapi.herokuapp.com/recipes/"+id+".json")
         .map(res => res.json())
         .subscribe(data => {
           resolve(data);
@@ -34,7 +34,7 @@ export class IngredientServiceProvider {
   }
   ingredient_user_parent_category(user_id) {
     return new Promise(resolve => {
-      this.http.get("http://0.0.0.0:9090/user_ingredients?user_parent_group=1&user_id="+user_id)
+      this.http.get("https://foodguideapi.herokuapp.com/user_ingredients?user_parent_group=1&user_id="+user_id)
         .map(res => res.json())
         .subscribe(data => {
           resolve(data);
@@ -44,7 +44,7 @@ export class IngredientServiceProvider {
 
   ingredient_parent_category(user_id) {
     return new Promise(resolve => {
-      this.http.get("http://0.0.0.0:9090/ingredients?user_id="+user_id)
+      this.http.get("https://foodguideapi.herokuapp.com/ingredients?user_id="+user_id)
         .map(res => res.json())
         .subscribe(data => {
           resolve(data);
@@ -53,7 +53,7 @@ export class IngredientServiceProvider {
   }
   get_child_ingredient(parent_id, user_id) {
     return new Promise(resolve => {
-      this.http.get("http://0.0.0.0:9090/ingredients?parent_id="+parent_id+"&user_id="+user_id)
+      this.http.get("https://foodguideapi.herokuapp.com/ingredients?parent_id="+parent_id+"&user_id="+user_id)
         .map(res => res.json())
         .subscribe(data => {
           resolve(data);
@@ -62,7 +62,7 @@ export class IngredientServiceProvider {
   }
   get_user_child_ingredient(id, user_id) {
     return new Promise(resolve => {
-      this.http.get("http://0.0.0.0:9090/user_ingredients.json?&user_id="+user_id+"&parent_id="+id)
+      this.http.get("https://foodguideapi.herokuapp.com/user_ingredients.json?&user_id="+user_id+"&parent_id="+id)
         .map(res => res.json())
         .subscribe(data => {
           resolve(data);
@@ -77,7 +77,7 @@ export class IngredientServiceProvider {
       }
 
     return new Promise(resolve => {
-      this.http.post("http://0.0.0.0:9090/user_ingredients.json", postParams)
+      this.http.post("https://foodguideapi.herokuapp.com/user_ingredients.json", postParams)
         .map(res => res.json())
         .subscribe(data => {
           resolve(data);

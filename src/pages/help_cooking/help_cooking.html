@@ -1,7 +1,7 @@
 <ion-header> <ion-navbar> <ion-title>My Ingredients</ion-title> </ion-navbar> </ion-header> 
 <ion-content padding>
 	<ion-buttons end>
-      	<button ion-item *ngFor="let ingredient of ingredient_categories" (click)="presentProfileModal(ingredient.id)">
+      	<button ion-item *ngFor="let ingredient of ingredient_categories" (click)="presentProfileModal(ingredient.id, ingredient.name)">
 		  <ion-icon name="md-basket"></ion-icon> {{ingredient.name}}
 		</button>
     </ion-buttons>

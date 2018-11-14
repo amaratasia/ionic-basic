@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Recipe List
+      {{re_name}}
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
@@ -11,10 +11,13 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content >
-  <p>Ama</p>
-  {{details}}
+<div style=" padding-left: 5%; padding-right: 3%; ">
+  <h6>
+  <div [innerHtml]="text"></div>
+</h6>
+</div>
+
   <ion-row center>  
    <ion-col text-center>   
     <button ion-button icon-only (click)="goToHome()">

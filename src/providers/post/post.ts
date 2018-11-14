@@ -10,7 +10,7 @@ export class PostProvider {
 
 	constructor(http:Http){
 		this.http = http;
-		this.authUrl = 'http://0.0.0.0:9090/users/login'; 
+		this.authUrl = 'https://foodguideapi.herokuapp.com/users/login'; 
 	}
 
 	restAuth(email, password){

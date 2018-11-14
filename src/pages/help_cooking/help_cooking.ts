@@ -37,14 +37,13 @@ export class HelpCooking {
     this.ingredientService.recipe_list(user_id)
       .then(data => {
           this.ingredient_categories = data;
-          console.log(this.ingredient_categories)
         })
       .catch( error => {
               console.log(error.message)
             })
   }
-  presentProfileModal(id) {
-    let profileModal = this.modalCtrl.create(Recipe, { recipe_id: id });
+  presentProfileModal(id, name) {
+    let profileModal = this.modalCtrl.create(Recipe, { recipe_id: id, name: name });
     profileModal.present();
    }
 
@@ -64,11 +63,11 @@ export class HelpCooking {
   templateUrl: 'recipe.html'
 })
 export class Recipe {
-  character;
-  cuisine;
   details;
   id;
   user_id;
+  text;
+  re_name;
   constructor(
     public params: NavParams,
     public nav: NavController,
@@ -76,18 +75,16 @@ export class Recipe {
     private storage: Storage,
     public ingredientService: IngredientServiceProvider
   ) {
-    this.cuisine = "Amar";
     this.storage.get('user_id').then((val) => {
       this.get_recipe(this.params.get('recipe_id'));
+      this.re_name = this.params.data.name;
   })
   }
 
   get_recipe(id){
     this.ingredientService.get_recipe(id)
       .then(data => {
-        console.log(data["id"])
-        console.log(data)
-          this.details = data["ingredient_list"];
+          this.text = data["ingredient_list"];
         })
       .catch( error => {
               console.log(error.message)
