@@ -66,6 +66,7 @@ export class Recipe {
   details;
   id;
   user_id;
+  recipe_id;
   text;
   re_name;
   constructor(
@@ -76,7 +77,10 @@ export class Recipe {
     public ingredientService: IngredientServiceProvider
   ) {
     this.storage.get('user_id').then((val) => {
-      this.get_recipe(this.params.get('recipe_id'));
+      this.user_id = val;
+      console.log(this.params);
+      this.recipe_id = this.params.get('recipe_id');
+      this.get_recipe(this.recipe_id);
       this.re_name = this.params.data.name;
   })
   }
@@ -85,6 +89,16 @@ export class Recipe {
     this.ingredientService.get_recipe(id)
       .then(data => {
           this.text = data["ingredient_list"];
+        })
+      .catch( error => {
+              console.log(error.message)
+            })
+
+  }
+  complete_cooking(){
+    this.ingredientService.complete_cooking(this.recipe_id, this.user_id)
+      .then(data => {
+          this.nav.setRoot(HomePage);
         })
       .catch( error => {
               console.log(error.message)

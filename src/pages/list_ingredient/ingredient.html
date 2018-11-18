@@ -13,9 +13,9 @@
 </ion-header>
 
 <!--  -->
-<ion-content >
+<ion-content class="masters">
   <ion-list>
-    <ion-item *ngFor="let item of cuisine">
+    <ion-item class="masters" *ngFor="let item of cuisine">
       <ion-label color="primary">{{item.ingredient_name}}</ion-label>
       <ion-input placeholder="Text Input" (ionChange)="updateIngredient()" value="{{item.quanity}}"></ion-input>
     </ion-item>

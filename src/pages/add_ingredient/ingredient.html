@@ -11,15 +11,15 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content >
-  <form (submit)="registerIngredient()" padding class="bg-register-image" >
-    <ion-item>
-      <ion-label>Title</ion-label>
-      <ion-select [(ngModel)]="todo.id" name='title'>
-        <ion-option name="title_option" *ngFor="let ingredient of ingredient_list" value="{{ingredient.id}}">{{ingredient.name}}</ion-option>
+<ion-content class="masters" >
+  <form (submit)="registerIngredient()" padding class="bg-register-image masters" >
+    <ion-item class="masters">
+      <ion-label class="masters">Title</ion-label>
+      <ion-select class="masters" [(ngModel)]="todo.id" name='title'>
+        <ion-option class="masters" name="title_option" *ngFor="let ingredient of ingredient_list" value="{{ingredient.id}}">{{ingredient.name}}</ion-option>
       </ion-select>
     </ion-item>
-  <ion-item>
+  <ion-item class="masters">
     <ion-label>Quantity</ion-label>
     <ion-input type="number" text-right [(ngModel)]="todo.quantity" name="quantity"></ion-input>
   </ion-item>

@@ -69,8 +69,8 @@ export class IngredientServiceProvider {
         });
     });
   }
-	post_child_ingredient(ingredient_id, quanity, user_id) {
-		let postParams = {
+  post_child_ingredient(ingredient_id, quanity, user_id) {
+    let postParams = {
         ingredient_id: ingredient_id,
         quanity: quanity,
         user_id: user_id
@@ -78,6 +78,20 @@ export class IngredientServiceProvider {
 
     return new Promise(resolve => {
       this.http.post("https://foodguideapi.herokuapp.com/user_ingredients.json", postParams)
+        .map(res => res.json())
+        .subscribe(data => {
+          resolve(data);
+        });
+    });
+  }
+  complete_cooking(recipe_id, user_id) {
+		let postParams = {
+        id: recipe_id,
+        user_id: user_id
+      }
+
+    return new Promise(resolve => {
+      this.http.post("https://foodguideapi.herokuapp.com/user_ingredients/cook_recipe.json", postParams)
         .map(res => res.json())
         .subscribe(data => {
           resolve(data);

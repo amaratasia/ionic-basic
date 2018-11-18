@@ -11,7 +11,7 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content >
+<ion-content class="masters">
 <div style=" padding-left: 5%; padding-right: 3%; ">
   <h6>
   <div [innerHtml]="text"></div>
@@ -22,6 +22,9 @@
    <ion-col text-center>   
     <button ion-button icon-only (click)="goToHome()">
     <ion-icon name="home"></ion-icon>
+    </button>
+<button ion-button icon-only (click)="complete_cooking()">
+    <ion-icon name="done-all"></ion-icon>
     </button>
    </ion-col> 
   </ion-row>
