@@ -68,6 +68,7 @@ export class Recipe {
   user_id;
   recipe_id;
   text;
+  video;
   re_name;
   constructor(
     public params: NavParams,
@@ -89,6 +90,7 @@ export class Recipe {
     this.ingredientService.get_recipe(id)
       .then(data => {
           this.text = data["ingredient_list"];
+          this.video = data["video"];
         })
       .catch( error => {
               console.log(error.message)

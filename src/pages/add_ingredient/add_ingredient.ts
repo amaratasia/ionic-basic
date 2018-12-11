@@ -27,6 +27,8 @@ user_id: number;
     
     
   }
+  openUrl(){ window.open('https://www.bigbasket.com/', '_system'); }
+
 
   openIngredientDetail(id) {
     let profileModal = this.modalCtrl.create(AddChildIngredient, { ingredient_id: id });
