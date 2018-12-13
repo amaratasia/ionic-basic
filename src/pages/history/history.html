@@ -1,0 +1,15 @@
+<ion-header> <ion-navbar> <ion-title>My Ingredients</ion-title> </ion-navbar> </ion-header> 
+<ion-content padding class="masters">
+	<ion-buttons class="masters" end>
+      	<button class="masters" ion-item *ngFor="let ingredient of ingredient_categories">
+		  <ion-icon name="md-basket"></ion-icon> {{ingredient.recipe.name}} - {{ingredient.created_at}}
+		</button>
+    </ion-buttons>
+<ion-row center>  
+ <ion-col text-center>   
+  <button ion-button icon-only (click)="goToHome()">
+	<ion-icon name="home"></ion-icon>
+	</button>
+ </ion-col> 
+</ion-row>
+</ion-content>

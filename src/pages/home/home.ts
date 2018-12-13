@@ -5,6 +5,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { ListIngredient } from '../list_ingredient/list_ingredient';
 import { AddIngredient } from '../add_ingredient/add_ingredient';
 import { HelpCooking } from '../help_cooking/help_cooking';
+import { PastHistory } from '../history/history';
 
 @IonicPage()
 
@@ -26,7 +27,8 @@ export class HomePage {
   	this.main_page_list = [
             {title: 'List my ingredients', component: ListIngredient},
             {title: 'Add Ingredients', component: AddIngredient},
-            {title: 'Help me with Cooking', component: HelpCooking}
+            {title: 'Help me with Cooking', component: HelpCooking},
+            {title: 'Cooking History', component: PastHistory}
         ];
   }
   navigate_menu(event){
