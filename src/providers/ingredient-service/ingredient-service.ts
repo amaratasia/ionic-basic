@@ -117,5 +117,19 @@ export class IngredientServiceProvider {
         });
     });
   }
+  add_to_fav(recipe_id, user_id) {
+		let postParams = {
+        recipe_id: recipe_id,
+        user_id: user_id
+      }
+
+    return new Promise(resolve => {
+      this.http.post("https://foodguideapi.herokuapp.com/favourites.json", postParams)
+        .map(res => res.json())
+        .subscribe(data => {
+          resolve(data);
+        });
+    });
+  }
 
 }

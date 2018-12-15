@@ -3,6 +3,7 @@ import { NavController, IonicPage, ModalController, NavParams, ViewController } 
 import { IngredientServiceProvider } from '../../providers/ingredient-service/ingredient-service';
 import { AuthProvider } from '../../providers/auth/auth';
 import { HomePage } from '../../pages/home/home';
+import { Favourites } from '../../pages/favourites/favourites';
 import { Storage } from '@ionic/storage';
 
 @IonicPage()
@@ -91,6 +92,17 @@ export class Recipe {
       .then(data => {
           this.text = data["ingredient_list"];
           this.video = data["video"];
+        })
+      .catch( error => {
+              console.log(error.message)
+            })
+
+  }
+
+  add_to_fav(){
+    this.ingredientService.add_to_fav(this.recipe_id, this.user_id)
+      .then(data => {
+          this.nav.setRoot(Favourites);
         })
       .catch( error => {
               console.log(error.message)
