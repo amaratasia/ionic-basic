@@ -79,6 +79,15 @@ export class IngredientServiceProvider {
         });
     });
   }
+  get_favourites(user_id) {
+    return new Promise(resolve => {
+      this.http.get("https://foodguideapi.herokuapp.com/favourites.json?user_id="+user_id)
+        .map(res => res.json())
+        .subscribe(data => {
+          resolve(data);
+        });
+    });
+  }
   post_child_ingredient(ingredient_id, quanity, user_id) {
     let postParams = {
         ingredient_id: ingredient_id,

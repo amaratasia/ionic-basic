@@ -6,6 +6,7 @@ import { ListIngredient } from '../list_ingredient/list_ingredient';
 import { AddIngredient } from '../add_ingredient/add_ingredient';
 import { HelpCooking } from '../help_cooking/help_cooking';
 import { PastHistory } from '../history/history';
+import { Favourites } from '../favourites/favourites';
 
 @IonicPage()
 
@@ -28,7 +29,8 @@ export class HomePage {
             {title: 'List my ingredients', component: ListIngredient},
             {title: 'Add Ingredients', component: AddIngredient},
             {title: 'Help me with Cooking', component: HelpCooking},
-            {title: 'Cooking History', component: PastHistory}
+            {title: 'Cooking History', component: PastHistory},
+            {title: 'Favourites', component: Favourites}
         ];
   }
   navigate_menu(event){

@@ -16,6 +16,7 @@ import { Ingredient } from '../pages/list_ingredient/list_ingredient';
 import { AddChildIngredient } from '../pages/add_ingredient/add_ingredient';
 import { HelpCooking } from '../pages/help_cooking/help_cooking';
 import { PastHistory } from '../pages/history/history';
+import { Favourites } from '../pages/favourites/favourites';
 import { Recipe } from '../pages/help_cooking/help_cooking';
 import { IngredientServiceProvider } from '../providers/ingredient-service/ingredient-service';
 
@@ -26,6 +27,7 @@ import { IngredientServiceProvider } from '../providers/ingredient-service/ingre
     Ingredient,
     AddIngredient,
     HelpCooking,
+    Favourites,
     PastHistory,
     Recipe,
     AddChildIngredient
@@ -43,6 +45,7 @@ import { IngredientServiceProvider } from '../providers/ingredient-service/ingre
     Ingredient,
     AddIngredient,
     HelpCooking,
+    Favourites,
     PastHistory,
     Recipe,
     AddChildIngredient
