@@ -6,6 +6,7 @@ import { ListIngredient } from '../list_ingredient/list_ingredient';
 import { AddIngredient } from '../add_ingredient/add_ingredient';
 import { HelpCooking } from '../help_cooking/help_cooking';
 import { PastHistory } from '../history/history';
+import { Repurchase } from '../repurchase/repurchase';
 import { Favourites } from '../favourites/favourites';
 
 @IonicPage()
@@ -30,6 +31,7 @@ export class HomePage {
             {title: 'Add Ingredients', component: AddIngredient},
             {title: 'Help me with Cooking', component: HelpCooking},
             {title: 'Weekly Schedule', component: PastHistory},
+            {title: 'Purchase Groceries', component: Repurchase},
             {title: 'Favourites', component: Favourites}
         ];
   }

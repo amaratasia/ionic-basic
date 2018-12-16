@@ -18,6 +18,7 @@ import { HelpCooking } from '../pages/help_cooking/help_cooking';
 import { PastHistory } from '../pages/history/history';
 import { Favourites } from '../pages/favourites/favourites';
 import { Recipe } from '../pages/help_cooking/help_cooking';
+import { Repurchase } from '../pages/repurchase/repurchase';
 import { IngredientServiceProvider } from '../providers/ingredient-service/ingredient-service';
 
 @NgModule({
@@ -29,6 +30,7 @@ import { IngredientServiceProvider } from '../providers/ingredient-service/ingre
     HelpCooking,
     Favourites,
     PastHistory,
+    Repurchase,
     Recipe,
     AddChildIngredient
   ],
@@ -47,6 +49,7 @@ import { IngredientServiceProvider } from '../providers/ingredient-service/ingre
     HelpCooking,
     Favourites,
     PastHistory,
+    Repurchase,
     Recipe,
     AddChildIngredient
     // SignUpPage
