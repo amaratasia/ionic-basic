@@ -4,6 +4,7 @@ import { IngredientServiceProvider } from '../../providers/ingredient-service/in
 import { AuthProvider } from '../../providers/auth/auth';
 import { HomePage } from '../../pages/home/home';
 import { Favourites } from '../../pages/favourites/favourites';
+import { PastHistory } from '../../pages/history/history';
 import { Storage } from '@ionic/storage';
 
 @IonicPage()
@@ -112,7 +113,7 @@ export class Recipe {
   complete_cooking(){
     this.ingredientService.complete_cooking(this.recipe_id, this.user_id)
       .then(data => {
-          this.nav.setRoot(HomePage);
+          this.nav.setRoot(PastHistory);
         })
       .catch( error => {
               console.log(error.message)

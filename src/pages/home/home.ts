@@ -29,7 +29,7 @@ export class HomePage {
             {title: 'List my ingredients', component: ListIngredient},
             {title: 'Add Ingredients', component: AddIngredient},
             {title: 'Help me with Cooking', component: HelpCooking},
-            {title: 'Cooking History', component: PastHistory},
+            {title: 'Weekly Schedule', component: PastHistory},
             {title: 'Favourites', component: Favourites}
         ];
   }

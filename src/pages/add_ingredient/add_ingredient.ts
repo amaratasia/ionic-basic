@@ -79,7 +79,7 @@ export class AddChildIngredient {
       this.get_parent_category_ingredient(val);
   })
     
-    this.todo = {id: "", title: "", quantity: 0}
+    this.todo = {id: 620, title: "Potato", quantity: 0}
   }
 
   registerIngredient() {

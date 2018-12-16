@@ -15,14 +15,20 @@
   <form (submit)="registerIngredient()" padding class="bg-register-image masters" >
     <ion-item class="masters">
       <ion-label class="masters">Title</ion-label>
-      <ion-select class="masters" [(ngModel)]="todo.id" name='title'>
-        <ion-option class="masters" name="title_option" *ngFor="let ingredient of ingredient_list" value="{{ingredient.id}}">{{ingredient.name}}</ion-option>
+      <ion-select class="masters"  [(ngModel)]="todo.id" name="title">
+        <ion-option class="masters" *ngFor="let ingredient of ingredient_list" value="{{ingredient.id}}">{{ingredient.name}}</ion-option>
       </ion-select>
     </ion-item>
+
   <ion-item class="masters">
-    <ion-label>Quantity</ion-label>
+    <ion-label>Quantity (in Lbs)</ion-label>
     <ion-input type="number" text-right [(ngModel)]="todo.quantity" name="quantity"></ion-input>
   </ion-item>
   <button ion-button type="submit" [disabled]="!(todo.id&&todo.quantity)" block>Add Ingredient</button>
+
+  <ion-item class="masters" text-center>
+  <ion-img width="100px" height="100px" style= "align-items: center;"  src="../assets/img/{{todo.id}}.png"></ion-img>
+  </ion-item>
+
   </form>
 </ion-content>
