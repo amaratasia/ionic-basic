@@ -15,6 +15,7 @@ export class Repurchase {
 
   ingredient_categories: any;
   user_id: number;
+  isDisplayImage: boolean = false;
 
   constructor(public nav: NavController,
               public modalCtrl: ModalController,
@@ -30,6 +31,12 @@ export class Repurchase {
     this.nav.setRoot(HomePage);
   }
   openUrl(){ window.open('https://www.bigbasket.com/', '_system'); }
+  open_map(){ window.open('https://www.google.com/maps/search/nearby+groceries/', '_system'); }
+
+  public displayImage(){
+       this.isDisplayImage = true;
+  }
+  
 	public logout() {
 		this.auth.logout().subscribe(succ => {
 		  this.nav.setRoot('LoginPage');

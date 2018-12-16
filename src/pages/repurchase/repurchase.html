@@ -13,6 +13,13 @@
 	<button ion-button icon-only (click)="openUrl()">
 		<ion-icon name="cart"></ion-icon>
 		</button>
+		<br>
+		<br>
+		<button ion-button icon-only  style="padding:2%" (click)="displayImage()">Nearby Store</button>
+		<br>
+<img *ngIf="isDisplayImage" style="width: 100%;" (click)="open_map()" src="../assets/img/map.png" />
+<br>
+	
  </ion-col> 
 </ion-row>
 </ion-content>
