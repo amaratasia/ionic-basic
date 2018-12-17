@@ -112,10 +112,13 @@ Repurchase = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-repurchase',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/repurchase/repurchase.html"*/'<ion-header> <ion-navbar> <ion-title>Purchase Groceries</ion-title> </ion-navbar> </ion-header> \n<ion-content padding class="masters">\n	<ion-buttons class="masters" end>\n      	<button class="masters" ion-item >Cloves</button>\n      	<button class="masters" ion-item >Water Melon</button>\n      	<button class="masters" ion-item >Banana</button>\n    </ion-buttons>\n<ion-row center>  \n <ion-col text-center>   \n  <button ion-button icon-only (click)="goToHome()">\n	<ion-icon name="home"></ion-icon>\n	</button>\n	<button ion-button icon-only (click)="openUrl()">\n		<ion-icon name="cart"></ion-icon>\n		</button>\n		<br>\n		<br>\n		<button ion-button icon-only  style="padding:2%" (click)="displayImage()">Nearby Store</button>\n		<br>\n<img *ngIf="isDisplayImage" style="width: 100%;" (click)="open_map()" src="../assets/img/map.png" />\n<br>\n	\n </ion-col> \n</ion-row>\n</ion-content>'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/repurchase/repurchase.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */],
+        __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]])
 ], Repurchase);
 
-var _a, _b, _c, _d, _e;
 //# sourceMappingURL=repurchase.js.map
 
 /***/ }),
@@ -142,19 +145,19 @@ webpackEmptyAsyncContext.id = 118;
 
 var map = {
 	"../pages/add_ingredient/add_ingredient.module": [
-		283,
+		277,
 		7
 	],
 	"../pages/favourites/favourites.module": [
-		277,
+		278,
 		6
 	],
 	"../pages/help_cooking/help_cooking.module": [
-		278,
+		279,
 		5
 	],
 	"../pages/history/history.module": [
-		279,
+		281,
 		4
 	],
 	"../pages/home/home.module": [
@@ -162,15 +165,15 @@ var map = {
 		3
 	],
 	"../pages/list_ingredient/list_ingredient.module": [
-		281,
+		282,
 		2
 	],
 	"../pages/login/login.module": [
-		284,
+		283,
 		0
 	],
 	"../pages/repurchase/repurchase.module": [
-		282,
+		284,
 		1
 	]
 };
@@ -362,11 +365,11 @@ AuthProvider = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_global_global__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_post_post__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_auth_auth__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_add_ingredient_add_ingredient__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_add_ingredient_add_ingredient__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_list_ingredient_list_ingredient__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_help_cooking_help_cooking__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_help_cooking_help_cooking__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_history_history__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_favourites_favourites__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_favourites_favourites__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_repurchase_repurchase__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_ingredient_service_ingredient_service__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -419,14 +422,14 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                 links: [
+                    { loadChildren: '../pages/add_ingredient/add_ingredient.module#AddIngredientModule', name: 'AddIngredient', segment: 'add_ingredient', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/favourites/favourites.module#ListIngredientModule', name: 'Favourites', segment: 'favourites', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/help_cooking/help_cooking.module#HelpCookingModule', name: 'HelpCooking', segment: 'help_cooking', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/history/history.module#ListIngredientModule', name: 'PastHistory', segment: 'history', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/history/history.module#ListIngredientModule', name: 'PastHistory', segment: 'history', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/list_ingredient/list_ingredient.module#ListIngredientModule', name: 'ListIngredient', segment: 'list_ingredient', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/repurchase/repurchase.module#ListIngredientModule', name: 'Repurchase', segment: 'repurchase', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/add_ingredient/add_ingredient.module#AddIngredientModule', name: 'AddIngredient', segment: 'add_ingredient', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/repurchase/repurchase.module#ListIngredientModule', name: 'Repurchase', segment: 'repurchase', priority: 'low', defaultHistory: [] }
                 ]
             }),
             __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* HttpModule */],
@@ -678,11 +681,11 @@ MyApp = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__list_ingredient_list_ingredient__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_ingredient_add_ingredient__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__help_cooking_help_cooking__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_ingredient_add_ingredient__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__help_cooking_help_cooking__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__history_history__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__repurchase_repurchase__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__favourites_favourites__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__favourites_favourites__ = __webpack_require__(56);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -743,7 +746,8 @@ HomePage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Favourites; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AddIngredient; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddChildIngredient; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__ = __webpack_require__(27);
@@ -765,8 +769,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var Favourites = (function () {
-    function Favourites(nav, modalCtrl, ingredientService, storage, auth) {
+var AddIngredient = (function () {
+    function AddIngredient(nav, modalCtrl, ingredientService, storage, auth) {
         var _this = this;
         this.nav = nav;
         this.modalCtrl = modalCtrl;
@@ -775,43 +779,123 @@ var Favourites = (function () {
         this.auth = auth;
         this.storage.get('user_id').then(function (val) {
             _this.user_id = val;
-            _this.get_details(val);
+            _this.get_parent_category_ingredient(val);
         });
     }
-    Favourites.prototype.get_details = function (user_id) {
+    AddIngredient.prototype.openUrl = function () { window.open('https://www.bigbasket.com/', '_system'); };
+    AddIngredient.prototype.openIngredientDetail = function (id) {
+        var profileModal = this.modalCtrl.create(AddChildIngredient, { ingredient_id: id });
+        profileModal.present();
+    };
+    AddIngredient.prototype.get_parent_category_ingredient = function (user_id) {
         var _this = this;
-        this.ingredientService.get_favourites(user_id)
+        this.ingredientService.ingredient_parent_category(user_id)
             .then(function (data) {
-            console.log(data);
-            _this.ingredient_categories = data;
+            _this.ingredient_categories = data['data'];
         })
             .catch(function (error) {
-            console.log(error.message);
+            // this.alert(error.message);
+            console.log(error);
         });
     };
-    Favourites.prototype.goToHome = function () {
+    AddIngredient.prototype.goToHome = function () {
         this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */]);
     };
-    Favourites.prototype.logout = function () {
+    AddIngredient.prototype.logout = function () {
         var _this = this;
         this.auth.logout().subscribe(function (succ) {
             _this.nav.setRoot('LoginPage');
         });
     };
-    return Favourites;
+    return AddIngredient;
 }());
-Favourites = __decorate([
+AddIngredient = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-favourites',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/favourites/favourites.html"*/'<ion-header> <ion-navbar> <ion-title>My Favourites</ion-title> </ion-navbar> </ion-header> \n<ion-content padding class="masters">\n	<ion-buttons class="masters" end>\n      	<button class="masters" ion-item *ngFor="let ingredient of ingredient_categories">\n		  <ion-icon name="md-basket"></ion-icon> {{ingredient.recipe.name}}\n		</button>\n    </ion-buttons>\n<ion-row center>  \n <ion-col text-center>   \n  <button ion-button icon-only (click)="goToHome()">\n	<ion-icon name="home"></ion-icon>\n	</button>\n </ion-col> \n</ion-row>\n</ion-content>'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/favourites/favourites.html"*/,
+        selector: 'page-add-ingredient',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/add_ingredient.html"*/'<ion-header> <ion-navbar> <ion-title>Add New Ingredients</ion-title> </ion-navbar> </ion-header> \n<ion-content padding class="masters">\n	<ion-buttons class="masters" end>\n      	<button class="masters" ion-item *ngFor="let ingredient of ingredient_categories" (click)="openIngredientDetail(ingredient.id)">\n		  <ion-icon name="md-add"></ion-icon> Add {{ingredient.name}}\n		</button>\n    </ion-buttons>\n	<ion-row center>  \n	 <ion-col text-center>   \n	  <button ion-button icon-only (click)="goToHome()">\n		<ion-icon name="home"></ion-icon>\n		</button>\n	  <button ion-button icon-only (click)="openUrl()">\n		<ion-icon name="cart"></ion-icon>\n		</button>\n	 </ion-col> \n	</ion-row>\n</ion-content>'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/add_ingredient.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
         __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */],
         __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
         __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]])
-], Favourites);
+], AddIngredient);
 
-//# sourceMappingURL=favourites.js.map
+var AddChildIngredient = (function () {
+    function AddChildIngredient(params, nav, ingredientService, viewCtrl, storage, alertCtrl) {
+        var _this = this;
+        this.params = params;
+        this.nav = nav;
+        this.ingredientService = ingredientService;
+        this.viewCtrl = viewCtrl;
+        this.storage = storage;
+        this.alertCtrl = alertCtrl;
+        this.display_details = false;
+        this.parent_id = this.params.get('ingredient_id');
+        this.storage.get('user_id').then(function (val) {
+            _this.user_id = val;
+            _this.get_parent_category_ingredient(val);
+        });
+        this.todo = { id: 620, title: "Potato", quantity: 0 };
+        this.details_hash = { 609: "Calories 44<br/>Total Fat 0.1 g<br/>Saturated fat 0 g<br/>Polyunsaturated fat 0 g<br/>Monounsaturated fat 0 g<br/>Cholesterol 0 mg<br/>Sodium 4 mg<br/>Potassium 161 mg<br/>Total Carbohydrate 10 g<br/>Dietary fiber 1.9 g<br/>Sugar 4.7 g<br/>", 620: "Total Fat 0.2 g<br/>Saturated fat 0.1 g<br/>Polyunsaturated fat 0.1 g<br/>Monounsaturated fat 0 g<br/>Cholesterol 0 mg<br/>Sodium 13 mg<br/>Potassium 897 mg<br/>Total Carbohydrate 37 g<br/>Dietary fiber 4.7 g<br/>Sugar 1.7 g<br/>Protein 4.3 g<br/>" };
+    }
+    AddChildIngredient.prototype.registerIngredient = function () {
+        this.post_child_ingredient();
+        this.presentAlert();
+        this.dismiss();
+    };
+    AddChildIngredient.prototype.presentAlert = function () {
+        var alert = this.alertCtrl.create({
+            title: 'Add Ingredient',
+            subTitle: "Ingredient Added",
+            buttons: ['Dismiss']
+        });
+        alert.present();
+    };
+    AddChildIngredient.prototype.display_detail = function () {
+        this.text = this.details_hash[this.todo.id];
+        this.display_details = !this.display_details;
+    };
+    AddChildIngredient.prototype.get_parent_category_ingredient = function (user_id) {
+        var _this = this;
+        this.ingredientService.get_child_ingredient(this.parent_id, user_id)
+            .then(function (data) {
+            _this.ingredient_list = data['data'];
+        })
+            .catch(function (error) {
+            console.log(error.message);
+        });
+    };
+    AddChildIngredient.prototype.post_child_ingredient = function () {
+        var _this = this;
+        this.ingredientService.post_child_ingredient(this.todo.id, this.todo.quantity, this.user_id)
+            .then(function (data) {
+            _this.ingredient_list = data['data'];
+        })
+            .catch(function (error) {
+            console.log(error.message);
+        });
+    };
+    AddChildIngredient.prototype.goToHome = function () {
+        this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */]);
+    };
+    AddChildIngredient.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
+    return AddChildIngredient;
+}());
+AddChildIngredient = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-add-ingredient-modal',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/ingredient.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Add Ingredient\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content class="masters" >\n  <form (submit)="registerIngredient()" padding class="bg-register-image masters" >\n    <ion-item class="masters">\n      <ion-label class="masters">Title</ion-label>\n      <ion-select class="masters"  [(ngModel)]="todo.id" name="title">\n        <ion-option class="masters" *ngFor="let ingredient of ingredient_list" (ionSelect)="display_detail()" value="{{ingredient.id}}">{{ingredient.name}}</ion-option>\n      </ion-select>\n    </ion-item>\n\n  <ion-item class="masters">\n    <ion-label>Quantity (in Lbs)</ion-label>\n    <ion-input type="number" text-right [(ngModel)]="todo.quantity" name="quantity"></ion-input>\n  </ion-item>\n  <button ion-button type="submit" [disabled]="!(todo.id&&todo.quantity)" block>Add Ingredient</button>\n\n  <ion-item class="masters" text-center>\n  <ion-img width="100px" height="100px" style= "align-items: center;" (click)="display_detail()"  src="../assets/img/{{todo.id}}.png"></ion-img>\n  <div *ngIf="display_details" [innerHtml]="text"></div>\n  </ion-item>\n\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/ingredient.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */],
+        __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+], AddChildIngredient);
+
+//# sourceMappingURL=add_ingredient.js.map
 
 /***/ }),
 
@@ -946,157 +1030,6 @@ Ingredient = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AddIngredient; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddChildIngredient; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(22);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-var AddIngredient = (function () {
-    function AddIngredient(nav, modalCtrl, ingredientService, storage, auth) {
-        var _this = this;
-        this.nav = nav;
-        this.modalCtrl = modalCtrl;
-        this.ingredientService = ingredientService;
-        this.storage = storage;
-        this.auth = auth;
-        this.storage.get('user_id').then(function (val) {
-            _this.user_id = val;
-            _this.get_parent_category_ingredient(val);
-        });
-    }
-    AddIngredient.prototype.openUrl = function () { window.open('https://www.bigbasket.com/', '_system'); };
-    AddIngredient.prototype.openIngredientDetail = function (id) {
-        var profileModal = this.modalCtrl.create(AddChildIngredient, { ingredient_id: id });
-        profileModal.present();
-    };
-    AddIngredient.prototype.get_parent_category_ingredient = function (user_id) {
-        var _this = this;
-        this.ingredientService.ingredient_parent_category(user_id)
-            .then(function (data) {
-            _this.ingredient_categories = data['data'];
-        })
-            .catch(function (error) {
-            // this.alert(error.message);
-            console.log(error);
-        });
-    };
-    AddIngredient.prototype.goToHome = function () {
-        this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */]);
-    };
-    AddIngredient.prototype.logout = function () {
-        var _this = this;
-        this.auth.logout().subscribe(function (succ) {
-            _this.nav.setRoot('LoginPage');
-        });
-    };
-    return AddIngredient;
-}());
-AddIngredient = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-add-ingredient',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/add_ingredient.html"*/'<ion-header> <ion-navbar> <ion-title>Add New Ingredients</ion-title> </ion-navbar> </ion-header> \n<ion-content padding class="masters">\n	<ion-buttons class="masters" end>\n      	<button class="masters" ion-item *ngFor="let ingredient of ingredient_categories" (click)="openIngredientDetail(ingredient.id)">\n		  <ion-icon name="md-add"></ion-icon> Add {{ingredient.name}}\n		</button>\n    </ion-buttons>\n	<ion-row center>  \n	 <ion-col text-center>   \n	  <button ion-button icon-only (click)="goToHome()">\n		<ion-icon name="home"></ion-icon>\n		</button>\n	  <button ion-button icon-only (click)="openUrl()">\n		<ion-icon name="cart"></ion-icon>\n		</button>\n	 </ion-col> \n	</ion-row>\n</ion-content>'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/add_ingredient.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */],
-        __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]])
-], AddIngredient);
-
-var AddChildIngredient = (function () {
-    function AddChildIngredient(params, nav, ingredientService, viewCtrl, storage, alertCtrl) {
-        var _this = this;
-        this.params = params;
-        this.nav = nav;
-        this.ingredientService = ingredientService;
-        this.viewCtrl = viewCtrl;
-        this.storage = storage;
-        this.alertCtrl = alertCtrl;
-        this.parent_id = this.params.get('ingredient_id');
-        this.storage.get('user_id').then(function (val) {
-            _this.user_id = val;
-            _this.get_parent_category_ingredient(val);
-        });
-        this.todo = { id: 620, title: "Potato", quantity: 0 };
-    }
-    AddChildIngredient.prototype.registerIngredient = function () {
-        this.post_child_ingredient();
-        this.presentAlert();
-        this.dismiss();
-    };
-    AddChildIngredient.prototype.presentAlert = function () {
-        var alert = this.alertCtrl.create({
-            title: 'Add Ingredient',
-            subTitle: "Ingredient Added",
-            buttons: ['Dismiss']
-        });
-        alert.present();
-    };
-    AddChildIngredient.prototype.get_parent_category_ingredient = function (user_id) {
-        var _this = this;
-        this.ingredientService.get_child_ingredient(this.parent_id, user_id)
-            .then(function (data) {
-            _this.ingredient_list = data['data'];
-        })
-            .catch(function (error) {
-            console.log(error.message);
-        });
-    };
-    AddChildIngredient.prototype.post_child_ingredient = function () {
-        var _this = this;
-        this.ingredientService.post_child_ingredient(this.todo.id, this.todo.quantity, this.user_id)
-            .then(function (data) {
-            _this.ingredient_list = data['data'];
-        })
-            .catch(function (error) {
-            console.log(error.message);
-        });
-    };
-    AddChildIngredient.prototype.goToHome = function () {
-        this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */]);
-    };
-    AddChildIngredient.prototype.dismiss = function () {
-        this.viewCtrl.dismiss();
-    };
-    return AddChildIngredient;
-}());
-AddChildIngredient = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-add-ingredient-modal',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/ingredient.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Add Ingredient\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content class="masters" >\n  <form (submit)="registerIngredient()" padding class="bg-register-image masters" >\n    <ion-item class="masters">\n      <ion-label class="masters">Title</ion-label>\n      <ion-select class="masters"  [(ngModel)]="todo.id" name="title">\n        <ion-option class="masters" *ngFor="let ingredient of ingredient_list" value="{{ingredient.id}}">{{ingredient.name}}</ion-option>\n      </ion-select>\n    </ion-item>\n\n  <ion-item class="masters">\n    <ion-label>Quantity (in Lbs)</ion-label>\n    <ion-input type="number" text-right [(ngModel)]="todo.quantity" name="quantity"></ion-input>\n  </ion-item>\n  <button ion-button type="submit" [disabled]="!(todo.id&&todo.quantity)" block>Add Ingredient</button>\n\n  <ion-item class="masters" text-center>\n  <ion-img width="100px" height="100px" style= "align-items: center;"  src="../assets/img/{{todo.id}}.png"></ion-img>\n  </ion-item>\n\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/add_ingredient/ingredient.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */],
-        __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-], AddChildIngredient);
-
-//# sourceMappingURL=add_ingredient.js.map
-
-/***/ }),
-
-/***/ 56:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelpCooking; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Recipe; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
@@ -1104,7 +1037,7 @@ AddChildIngredient = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_favourites_favourites__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_favourites_favourites__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_history_history__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_storage__ = __webpack_require__(22);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1246,6 +1179,82 @@ Recipe = __decorate([
 ], Recipe);
 
 //# sourceMappingURL=help_cooking.js.map
+
+/***/ }),
+
+/***/ 56:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Favourites; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(22);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var Favourites = (function () {
+    function Favourites(nav, modalCtrl, ingredientService, storage, auth) {
+        var _this = this;
+        this.nav = nav;
+        this.modalCtrl = modalCtrl;
+        this.ingredientService = ingredientService;
+        this.storage = storage;
+        this.auth = auth;
+        this.storage.get('user_id').then(function (val) {
+            _this.user_id = val;
+            _this.get_details(val);
+        });
+    }
+    Favourites.prototype.get_details = function (user_id) {
+        var _this = this;
+        this.ingredientService.get_favourites(user_id)
+            .then(function (data) {
+            console.log(data);
+            _this.ingredient_categories = data;
+        })
+            .catch(function (error) {
+            console.log(error.message);
+        });
+    };
+    Favourites.prototype.goToHome = function () {
+        this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */]);
+    };
+    Favourites.prototype.logout = function () {
+        var _this = this;
+        this.auth.logout().subscribe(function (succ) {
+            _this.nav.setRoot('LoginPage');
+        });
+    };
+    return Favourites;
+}());
+Favourites = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-favourites',template:/*ion-inline-start:"/Users/amar/repo/ionic-basic/src/pages/favourites/favourites.html"*/'<ion-header> <ion-navbar> <ion-title>My Favourites</ion-title> </ion-navbar> </ion-header> \n<ion-content padding class="masters">\n	<ion-buttons class="masters" end>\n      	<button class="masters" ion-item *ngFor="let ingredient of ingredient_categories">\n		  <ion-icon name="md-basket"></ion-icon> {{ingredient.recipe.name}}\n		</button>\n    </ion-buttons>\n<ion-row center>  \n <ion-col text-center>   \n  <button ion-button icon-only (click)="goToHome()">\n	<ion-icon name="home"></ion-icon>\n	</button>\n </ion-col> \n</ion-row>\n</ion-content>'/*ion-inline-end:"/Users/amar/repo/ionic-basic/src/pages/favourites/favourites.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_ingredient_service_ingredient_service__["a" /* IngredientServiceProvider */],
+        __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]])
+], Favourites);
+
+//# sourceMappingURL=favourites.js.map
 
 /***/ }),
 

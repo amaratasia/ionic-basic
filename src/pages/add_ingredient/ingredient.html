@@ -16,7 +16,7 @@
     <ion-item class="masters">
       <ion-label class="masters">Title</ion-label>
       <ion-select class="masters"  [(ngModel)]="todo.id" name="title">
-        <ion-option class="masters" *ngFor="let ingredient of ingredient_list" value="{{ingredient.id}}">{{ingredient.name}}</ion-option>
+        <ion-option class="masters" *ngFor="let ingredient of ingredient_list" (ionSelect)="display_detail()" value="{{ingredient.id}}">{{ingredient.name}}</ion-option>
       </ion-select>
     </ion-item>
 
@@ -27,7 +27,8 @@
   <button ion-button type="submit" [disabled]="!(todo.id&&todo.quantity)" block>Add Ingredient</button>
 
   <ion-item class="masters" text-center>
-  <ion-img width="100px" height="100px" style= "align-items: center;"  src="../assets/img/{{todo.id}}.png"></ion-img>
+  <ion-img width="100px" height="100px" style= "align-items: center;" (click)="display_detail()"  src="../assets/img/{{todo.id}}.png"></ion-img>
+  <div *ngIf="display_details" [innerHtml]="text"></div>
   </ion-item>
 
   </form>

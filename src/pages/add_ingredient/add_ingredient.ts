@@ -65,6 +65,9 @@ export class AddChildIngredient {
   ingredient_list: any;
   todo: any;
   user_id: any;
+  text: any;
+  details_hash: any;
+  display_details: boolean = false;
   constructor(
     public params: NavParams,
     public nav: NavController,
@@ -80,6 +83,7 @@ export class AddChildIngredient {
   })
     
     this.todo = {id: 620, title: "Potato", quantity: 0}
+    this.details_hash = {609: "Calories 44<br/>Total Fat 0.1 g<br/>Saturated fat 0 g<br/>Polyunsaturated fat 0 g<br/>Monounsaturated fat 0 g<br/>Cholesterol 0 mg<br/>Sodium 4 mg<br/>Potassium 161 mg<br/>Total Carbohydrate 10 g<br/>Dietary fiber 1.9 g<br/>Sugar 4.7 g<br/>", 620: "Total Fat 0.2 g<br/>Saturated fat 0.1 g<br/>Polyunsaturated fat 0.1 g<br/>Monounsaturated fat 0 g<br/>Cholesterol 0 mg<br/>Sodium 13 mg<br/>Potassium 897 mg<br/>Total Carbohydrate 37 g<br/>Dietary fiber 4.7 g<br/>Sugar 1.7 g<br/>Protein 4.3 g<br/>"}
   }
 
   registerIngredient() {
@@ -95,6 +99,10 @@ export class AddChildIngredient {
     buttons: ['Dismiss']
   });
   alert.present();
+}
+display_detail(){
+  this.text = this.details_hash[this.todo.id];
+  this.display_details = !this.display_details;
 }
 
   public get_parent_category_ingredient(user_id){
